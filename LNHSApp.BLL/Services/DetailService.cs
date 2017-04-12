@@ -17,7 +17,7 @@ namespace LNHSApp.BLL.Services
         {
         }
 
-        public IEnumerable<Detail> GetDetailsByFilter(DetailFilters filter)
+        public IEnumerable<Detail> GetDetailsByFilter(DetailFilter filter)
         {
             var details = GetItems();
 

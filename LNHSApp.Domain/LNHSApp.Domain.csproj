@@ -63,7 +63,8 @@
     <Compile Include="Enums\UserRoles.cs" />
     <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Enums\UserState.cs" />
-    <Compile Include="Filters\DetailFilters.cs" />
+    <Compile Include="Filters\BreakingFilter.cs" />
+    <Compile Include="Filters\DetailFilter.cs" />
     <Compile Include="Filters\UserFilter.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Breaking.cs" />

@@ -1,4 +1,5 @@
-﻿using LNHSApp.Domain.Models;
+﻿using LNHSApp.Domain.Filters;
+using LNHSApp.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace LNHSApp.Contracts.BLLContracts.Services
 {
     public interface IBreakingService : IBaseService<Breaking>
     {
+        IEnumerable<Breaking> GetBreakingsByFilter(BreakingFilter filter);
     }
 }

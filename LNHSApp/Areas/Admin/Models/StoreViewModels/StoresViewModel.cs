@@ -8,7 +8,7 @@ namespace LNHSApp.Areas.Admin.Models.StoreViewModels
 {
     public class StoresViewModel
     {
-        public DetailFilters Filter { get; set; }
+        public DetailFilter Filter { get; set; }
         public IEnumerable<StoreViewModel> DetailsList { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LNHSApp.Domain.Filters
 {
-    public class DetailFilters
+    public class DetailFilter
     {
         public string Code { get; set; }
         public string Name { get; set; }

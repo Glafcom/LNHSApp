@@ -22,11 +22,18 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
 
 
         IEnumerable<Detail> GetDetails();
-        IEnumerable<Detail> GetDetailsByFilter(DetailFilters filter);
+        IEnumerable<Detail> GetDetailsByFilter(DetailFilter filter);
         Detail GetDetail(Guid detailId);
         void AddDetail(Detail detail);
         void ChangeDetail(Detail detail);
         void DeleteDetail(Guid detailId);
+
+        IEnumerable<Breaking> GetBreakings();
+        IEnumerable<Breaking> GetBreakingbyFilter(BreakingFilter filter);
+        Breaking GetBreaking(Guid breakingId);
+        void CreateBreaking(Breaking breaking);
+        void DeleteBreaking(Guid breakingId);
+        void ResolveBreaking(Guid breakingId, IEnumerable<Store> stores);
 
     }
 }

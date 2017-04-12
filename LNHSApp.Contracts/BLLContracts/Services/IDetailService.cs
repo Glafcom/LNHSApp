@@ -10,6 +10,6 @@ namespace LNHSApp.Contracts.BLLContracts.Services
 {
     public interface IDetailService : IBaseService<Detail>
     {
-        IEnumerable<Detail> GetDetailsByFilter(DetailFilters filter);
+        IEnumerable<Detail> GetDetailsByFilter(DetailFilter filter);
     }
 }

@@ -52,9 +52,14 @@ namespace LNHSApp.Areas.Admin.Controllers
 
 
 
-        public ActionResult Details(DetailFilters filter)
+        public ActionResult Details(DetailFilter filter)
         {
-            return View()
+            var model = new DetailsViewModel
+            {
+                Filter = filter,
+                DetailsList = _adminDomain.GetDetailsByFilter(filter).Select(d => Mapper.Map<DetailViewModel>(d))
+            };
+            return View(model);
         }
 
         [HttpGet]

@@ -17,7 +17,7 @@ namespace LNHSApp.Domain.Models
         public Guid? DetailId { get; set; }
         public Guid? HockeyTableId { get; set; }
         public Guid? GameId { get; set; }
-        public bool? IsActual { get; set; }
+        public bool? IsResolved { get; set; }
 
         public virtual Detail Detail { get; set; }
         public virtual Game Game { get; set; }

@@ -16,10 +16,13 @@ namespace LNHSApp.BLL.Domains
     {
         protected readonly IUserService _userService;
         protected readonly IDetailService _detailService;
-        public AdminDomain(IUserService userService, IDetailService detailService)
+        protected readonly IBreakingService _breakingService;
+
+        public AdminDomain(IUserService userService, IDetailService detailService, IBreakingService breakingService)
         {
             _userService = userService;
             _detailService = detailService;
+            _breakingService = breakingService;
         }
 
         #region Users methods
@@ -70,7 +73,7 @@ namespace LNHSApp.BLL.Domains
             return _detailService.GetItems();
         }
 
-        public IEnumerable<Detail> GetDetailsByFilter(DetailFilters filter)
+        public IEnumerable<Detail> GetDetailsByFilter(DetailFilter filter)
         {
             return _detailService.GetDetailsByFilter(filter);
         }
@@ -100,7 +103,16 @@ namespace LNHSApp.BLL.Domains
 
         #region Breakings methods
 
+        public IEnumerable<Breaking> GetBreakings()
+        {
+            return _breakingService.GetItems();
+        }
 
+        IEnumerable<Breaking> GetBreakingbyFilter(BreakingFilter filter);
+        Breaking GetBreaking(Guid breakingId);
+        void CreateBreaking(Breaking breaking);
+        void DeleteBreaking(Guid breakingId);
+        void ResolveBreaking(Guid breakingId, IEnumerable<Store> stores);
 
         #endregion
 
