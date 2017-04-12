@@ -22,8 +22,9 @@ namespace LNHSApp.DAL.Migrations
         {
             context.Roles.AddOrUpdate(
                 r => r.Name,
-                new Role { Name = UserRoleType.Admin },
-                new Role { Name = UserRoleType.Player }
+                new Role { Name = RoleType.Admin },
+                new Role { Name = RoleType.Player },
+                new Role { Name = RoleType.TournamentAdmin }
 
              );
 
@@ -41,7 +42,7 @@ namespace LNHSApp.DAL.Migrations
                 };
 
                 userManager.Create(admin, "admin123");
-                userManager.AddToRole(admin.Id, UserRoleType.Admin);
+                userManager.AddToRole(admin.Id, RoleType.Admin);
             }
 
             context.SaveChanges();

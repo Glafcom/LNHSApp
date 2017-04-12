@@ -60,7 +60,11 @@
     <Compile Include="Enums\PlayoffStage.cs" />
     <Compile Include="Enums\ScoreCountingSystem.cs" />
     <Compile Include="Enums\TableCondition.cs" />
-    <Compile Include="Enums\UserRoleType.cs" />
+    <Compile Include="Enums\UserRoles.cs" />
+    <Compile Include="Enums\RoleType.cs" />
+    <Compile Include="Enums\UserState.cs" />
+    <Compile Include="Filters\DetailFilters.cs" />
+    <Compile Include="Filters\UserFilter.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Breaking.cs" />
     <Compile Include="Models\Detail.cs" />

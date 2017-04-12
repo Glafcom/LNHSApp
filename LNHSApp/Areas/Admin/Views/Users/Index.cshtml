@@ -1,0 +1,148 @@
+﻿@using LNHSApp.Areas.Admin.Models.UsersViewModels;
+@model UsersViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Users</h2>
+
+@Html.Partial("_UserFilter", Model.Filter)
+
+<div class="users-table-container container">
+    @if (Model.UsersList != null && Model.UsersList.Count() > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Login</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Date of Birth</th>
+                    <th>Roles</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var user in Model.UsersList)
+                {
+                    var btnClass = user.IsBlocked.HasValue && (bool)user.IsBlocked
+                        ? "user-blocked"
+                        : string.Empty;
+
+                    <tr class="user-row @btnClass">
+                        <td>@user.UserName</td>
+                        <td>@user.Name</td>
+                        <td>@user.Surname</td>
+                        <td>@user.Email</td>
+                        <td>@user.PhoneNumber</td>
+                        <td>@user.Country</td>
+                        <td>@user.City</td>
+                        <td>@(user.DayOfBirth.HasValue ? ((DateTime)user.DayOfBirth).ToString("dd.MM.yyyy") : string.Empty)</td>
+                        <td>
+                            <div class="roles-list-section">
+                                @foreach (SelectListItem role in ViewBag.UserRolesList)
+                                {
+                                    <input type="checkbox" class="user-role-chkbox" data-user-id="@user.Id" data-role-id="@role.Value" checked="@(user.Roles.Contains(role.Value))" />@role.Text
+                                }
+                            </div>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("UnblockUser", "Users", new { userId = user.Id})" data-user-id="@user.Id" class="btn btn-default unblock-btn">Unblock</a>
+                            <a href="@Url.Action("BlockUser", "Users", new { userId = user.Id})" data-user-id="@user.Id" class="btn btn-default block-btn">Block</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("DeleteUser", "Users", new { userId = user.Id})" data-user-id="@user.Id" class="btn btn-danger delete-btn">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+<script>
+
+    $(".unblock-btn").click(function () {
+        var userId = $(this).data("user-id");
+        $.ajax({
+            method: "POST",
+            url: "@Url.Action("UnblockUser", "Users")",
+            data: { userId : userId }
+        })
+        .complete(function () {
+            $(this).closest("tr").removeClass("user-blocked");
+        });
+    });
+
+    $(".block-btn").click(function () {
+        var userId = $(this).data("user-id");
+        $.ajax({
+            method: "POST",
+            url: "@Url.Action("BlockUser", "Users")",
+            data: { userId : userId }
+        })
+        .complete(function () {
+            $(this).closest("tr").addClass("user-blocked");
+        });
+    });
+
+    $(".delete-btn").click(function () {
+        var userId = $(this).data("user-id");
+        $.ajax({
+            method: "POST",
+            url: "@Url.Action("DeleteUser", "Users")",
+            data: { userId : userId }
+        })
+        .complete(function () {
+            $(this).closest("tr").remove();
+        });
+    });
+
+    $(".user-role-chkbox").change(function () {
+        var userId = $(this).data("user-id");
+        var roleId = $(this).data("role-id");
+
+        if ($(this).checked) {
+            addRole(userId, roleId)
+        } else {
+            removeRole(userId, roleId)
+        }
+    });
+
+    function addRole(userId, roleId) {
+        $.ajax({
+            method: "POST",
+            url: "@Url.Action("GrantPermission", "Users")",
+            data: {
+                userId: userId,
+                userRole: roleId
+            }
+        })
+        .complete(function () {
+            
+        });
+    }
+
+    function removeRole(userId, roleId) {
+        $.ajax({
+            method: "POST",
+            url: "@Url.Action("RemovePermissions", "Users")",
+            data: {
+                userId: userId,
+                userRole: roleId
+            }
+        })
+        .complete(function () {
+        
+        });
+    }
+
+</script>
+

@@ -1,5 +1,5 @@
-﻿using LNHSApp.BLLContracts.Interfaces.Services;
-using LNHSApp.DALContracts.Interfaces;
+﻿using LNHSApp.Contracts.BLLContracts.Services;
+using LNHSApp.Contracts.DALContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

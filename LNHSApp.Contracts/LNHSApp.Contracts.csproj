@@ -85,6 +85,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLContracts\Domains\IAdminDomain.cs" />
+    <Compile Include="BLLContracts\Domains\IGuestDomain.cs" />
+    <Compile Include="BLLContracts\Domains\IPlayerDomain.cs" />
+    <Compile Include="BLLContracts\Domains\ITournamentAdminDomain.cs" />
+    <Compile Include="BLLContracts\Services\IBaseService.cs" />
+    <Compile Include="BLLContracts\Services\IBreakingService.cs" />
+    <Compile Include="BLLContracts\Services\IDetailService.cs" />
+    <Compile Include="BLLContracts\Services\IGameService.cs" />
+    <Compile Include="BLLContracts\Services\IHockeyTableService.cs" />
+    <Compile Include="BLLContracts\Services\IJingleService.cs" />
+    <Compile Include="BLLContracts\Services\IPlayoffStageService.cs" />
+    <Compile Include="BLLContracts\Services\IRoundRobinStageService.cs" />
+    <Compile Include="BLLContracts\Services\ISerieService.cs" />
+    <Compile Include="BLLContracts\Services\IStageService.cs" />
+    <Compile Include="BLLContracts\Services\IStoreService.cs" />
+    <Compile Include="BLLContracts\Services\ITeamService.cs" />
+    <Compile Include="BLLContracts\Services\ITournamentService.cs" />
+    <Compile Include="BLLContracts\Services\IUserService.cs" />
     <Compile Include="DALContracts\Identity\IApplicationSignInManager.cs" />
     <Compile Include="DALContracts\Identity\IApplicationUserManager.cs" />
     <Compile Include="DALContracts\IGenericRepository.cs" />

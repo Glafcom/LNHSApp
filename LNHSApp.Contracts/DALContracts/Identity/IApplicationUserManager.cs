@@ -25,6 +25,9 @@ namespace LNHSApp.Contracts.DALContracts.Identity
         IEnumerable<User> GetUsers();
 
         Task<IdentityResult> AddToRoleAsync(Guid userId, string role);
+        Task<IdentityResult> AddToRolesAsync(Guid userId, params string[] roles);
+        Task<IdentityResult> RemoveFromRoleAsync(Guid userId, string role);
+        Task<IdentityResult> RemoveFromRolesAsync(Guid userId, params string[] roles);
         Task<ClaimsIdentity> CreateIdentityAsync(User user, string authenticationType);
         Task<IdentityResult> ConfirmEmailAsync(Guid userId, string token);
         Task<IdentityResult> ResetPasswordAsync(Guid userId, string token, string newPassword);

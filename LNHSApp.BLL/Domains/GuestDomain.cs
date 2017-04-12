@@ -1,4 +1,4 @@
-﻿using LNHSApp.BLLContracts.Interfaces.Domains;
+﻿using LNHSApp.Contracts.BLLContracts.Domains;
 using System;
 using System.Collections.Generic;
 using System.Linq;

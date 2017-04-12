@@ -1,0 +1,80 @@
+﻿@using LNHSApp.Domain.Enums;
+@using LNHSApp.Domain.Filters;
+@model UserFilter
+
+@using (Html.BeginForm("Index", "Users", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div class="user-filter-container container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group username-filter">
+                    @Html.LabelFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group name-filter">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group surname-filter">
+                    @Html.LabelFor(m => m.Surname)
+                    @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Surname)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group country-filter">
+                    @Html.LabelFor(m => m.Country)
+                    @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Country)
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group city-filter">
+                    @Html.LabelFor(m => m.City)
+                    @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.City)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group min-age-filter">
+                    @Html.LabelFor(m => m.MinAge)
+                    @Html.DropDownListFor(m => m.MinAge, Enumerable.Range(4, 100).Select(x => new SelectListItem { Value = x.ToString(), Text = x.ToString() }), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.MinAge)
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group max-age-filter">
+                    @Html.LabelFor(m => m.MaxAge)
+                    @Html.DropDownListFor(m => m.MaxAge, Enumerable.Range(4, 100).Select(x => new SelectListItem { Value = x.ToString(), Text = x.ToString() }), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.MaxAge)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group state-filter">
+                    @Html.LabelFor(m => m.State)
+                    @Html.DropDownListFor(m => m.State, LNHSApp.Extensions.Helpers.EnumHelper.GetEnumDictionary<UserState>().Select(us => new SelectListItem { Value = us.Key.ToString(), Text = us.Value }), new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.State)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+         </div>
+    </div>
+}

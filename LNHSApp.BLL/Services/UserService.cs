@@ -1,5 +1,8 @@
-﻿using LNHSApp.BLLContracts.Interfaces.Services;
-using LNHSApp.DALContracts.Interfaces;
+﻿using LNHSApp.Contracts.BLLContracts.Services;
+using LNHSApp.Contracts.DALContracts;
+using LNHSApp.Contracts.DALContracts.Identity;
+using LNHSApp.Domain.Enums;
+using LNHSApp.Domain.Filters;
 using LNHSApp.Domain.Models.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,11 +14,66 @@ namespace LNHSApp.BLL.Services
 {
     public class UserService : BaseService<User>, IUserService
     {
+        protected readonly IApplicationUserManager _userManager;
 
-        public UserService(IGenericRepository<User> itemRepository)
+        public UserService(IGenericRepository<User> itemRepository, IApplicationUserManager userManager)
             : base(itemRepository)
         {
+            _userManager = userManager;
+        }
 
+        public IEnumerable<User> GetUsersByFilter(UserFilter filter)
+        {
+            var users = GetItems();
+
+            if (!string.IsNullOrEmpty(filter.UserName))
+                users = users.Where(u => u.UserName.Contains(filter.UserName));
+
+            if (!string.IsNullOrEmpty(filter.Name))
+                users = users.Where(u => u.Name.Contains(filter.Name));
+
+            if (!string.IsNullOrEmpty(filter.Surname))
+                users = users.Where(u => u.Surname.Contains(filter.Surname));
+
+            if (!string.IsNullOrEmpty(filter.Country))
+                users = users.Where(u => u.Country.Contains(filter.Country));
+
+            if (!string.IsNullOrEmpty(filter.City))
+                users = users.Where(u => u.City.Contains(filter.City));
+
+            if (filter.MinAge != null)
+            {
+                var targetDate = DateTime.Now.AddYears(-(int)filter.MinAge);
+                users = users.Where(u => u.DayOfBirth <= targetDate);
+            }
+
+            if (filter.MaxAge != null)
+            {
+                var targetDate = DateTime.Now.AddYears(-(int)filter.MaxAge);
+                users = users.Where(u => u.DayOfBirth >= targetDate);
+            }
+
+            if (filter.State.HasValue)
+            {
+                if ((UserState)filter.State == UserState.Active)
+                    users = users.Where(u => !u.IsBlocked.HasValue || !(bool)u.IsBlocked);
+                if ((UserState)filter.State == UserState.Blocked)
+                    users = users.Where(u => u.IsBlocked.HasValue && (bool)u.IsBlocked);
+            }
+                
+
+
+            return users;
+        }
+
+        public async Task SetRoleToUser(Guid userId, string role)
+        {
+            await _userManager.AddToRoleAsync(userId, role);
+        }
+
+        public async Task RemoveRoleFromUser(Guid userId, string role)
+        {
+            await _userManager.RemoveFromRoleAsync(userId, role);
         }
 
         public void BlockUser(Guid userId)

@@ -14,9 +14,13 @@ namespace LNHSApp.Domain.Models.Identity
     public class User : IdentityUser<Guid, UserLogin, UserRole, UserClaim>
     {
         public override Guid Id { get; set; }
+        public override string UserName { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
         public bool? IsBlocked { get; set; }
+        public DateTime DayOfBirth { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User, Guid> manager)
         {
