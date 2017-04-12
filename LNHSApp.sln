@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNHSApp", "LNHSApp\LNHSApp.csproj", "{B58DE0A5-43A9-490A-99E1-8ED15743FC84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNHSApp.Domain", "LNHSApp.Domain\LNHSApp.Domain.csproj", "{6F7710BF-88C9-4AE9-B898-5FE156B78CAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNHSApp.DAL", "LNHSApp.DAL\LNHSApp.DAL.csproj", "{2D7B9950-7433-4BC2-B6AA-782C9AD47FB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNHSApp.DALContracts", "LNHSApp.DALContracts\LNHSApp.DALContracts.csproj", "{ED0FA37D-2B1E-4B22-AE7A-7B76B711CC04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNHSApp.BLL", "LNHSApp.BLL\LNHSApp.BLL.csproj", "{A53C7140-8F3F-469D-85CB-536EBEC19046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LNHSApp.BLLContracts", "LNHSApp.BLLContracts\LNHSApp.BLLContracts.csproj", "{43B03358-371E-4479-B4DB-47D18AAC759D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B58DE0A5-43A9-490A-99E1-8ED15743FC84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B58DE0A5-43A9-490A-99E1-8ED15743FC84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B58DE0A5-43A9-490A-99E1-8ED15743FC84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B58DE0A5-43A9-490A-99E1-8ED15743FC84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F7710BF-88C9-4AE9-B898-5FE156B78CAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F7710BF-88C9-4AE9-B898-5FE156B78CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F7710BF-88C9-4AE9-B898-5FE156B78CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F7710BF-88C9-4AE9-B898-5FE156B78CAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D7B9950-7433-4BC2-B6AA-782C9AD47FB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D7B9950-7433-4BC2-B6AA-782C9AD47FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D7B9950-7433-4BC2-B6AA-782C9AD47FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D7B9950-7433-4BC2-B6AA-782C9AD47FB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED0FA37D-2B1E-4B22-AE7A-7B76B711CC04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED0FA37D-2B1E-4B22-AE7A-7B76B711CC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED0FA37D-2B1E-4B22-AE7A-7B76B711CC04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED0FA37D-2B1E-4B22-AE7A-7B76B711CC04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A53C7140-8F3F-469D-85CB-536EBEC19046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A53C7140-8F3F-469D-85CB-536EBEC19046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A53C7140-8F3F-469D-85CB-536EBEC19046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A53C7140-8F3F-469D-85CB-536EBEC19046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43B03358-371E-4479-B4DB-47D18AAC759D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43B03358-371E-4479-B4DB-47D18AAC759D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43B03358-371E-4479-B4DB-47D18AAC759D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43B03358-371E-4479-B4DB-47D18AAC759D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A53C7140-8F3F-469D-85CB-536EBEC19046}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LNHSApp.BLL</RootNamespace>
+    <AssemblyName>LNHSApp.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domains\AdminDomain.cs" />
+    <Compile Include="Domains\GuestDomain.cs" />
+    <Compile Include="Domains\PlayerDomain.cs" />
+    <Compile Include="Domains\TournamentAdminDomain.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\BreakingService.cs" />
+    <Compile Include="Services\DetailService.cs" />
+    <Compile Include="Services\GameService.cs" />
+    <Compile Include="Services\HockeyTableService.cs" />
+    <Compile Include="Services\JingleService.cs" />
+    <Compile Include="Services\PlayoffStageService.cs" />
+    <Compile Include="Services\RoundRobinStageService.cs" />
+    <Compile Include="Services\SerieService.cs" />
+    <Compile Include="Services\StageService.cs" />
+    <Compile Include="Services\StoreService.cs" />
+    <Compile Include="Services\TeamService.cs" />
+    <Compile Include="Services\TournamentService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LNHSApp.BLLContracts\LNHSApp.BLLContracts.csproj">
+      <Project>{43B03358-371E-4479-B4DB-47D18AAC759D}</Project>
+      <Name>LNHSApp.BLLContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LNHSApp.DALContracts\LNHSApp.DALContracts.csproj">
+      <Project>{ED0FA37D-2B1E-4B22-AE7A-7B76B711CC04}</Project>
+      <Name>LNHSApp.DALContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LNHSApp.Domain\LNHSApp.Domain.csproj">
+      <Project>{6F7710BF-88C9-4AE9-B898-5FE156B78CAE}</Project>
+      <Name>LNHSApp.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
