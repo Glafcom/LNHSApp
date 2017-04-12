@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LNHSApp.DALContracts.Interfaces.Identity
+namespace LNHSApp.Contracts.DALContracts.Identity
 {
     public interface IApplicationUserManager
     {

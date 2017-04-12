@@ -97,9 +97,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\LNHSApp.DALContracts\LNHSApp.DALContracts.csproj">
-      <Project>{ED0FA37D-2B1E-4B22-AE7A-7B76B711CC04}</Project>
-      <Name>LNHSApp.DALContracts</Name>
+    <ProjectReference Include="..\LNHSApp.Contracts\LNHSApp.Contracts.csproj">
+      <Project>{b8d8d710-c30d-4afd-b882-43b14ba688a6}</Project>
+      <Name>LNHSApp.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\LNHSApp.Domain\LNHSApp.Domain.csproj">
       <Project>{6F7710BF-88C9-4AE9-B898-5FE156B78CAE}</Project>

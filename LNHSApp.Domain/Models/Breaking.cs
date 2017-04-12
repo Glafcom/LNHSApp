@@ -13,7 +13,6 @@ namespace LNHSApp.Domain.Models
         {
             this.Guilty = new HashSet<User>();
         }
-
         public string Description { get; set; }
         public Guid? DetailId { get; set; }
         public Guid? HockeyTableId { get; set; }

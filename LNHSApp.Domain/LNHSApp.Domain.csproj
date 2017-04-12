@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\PlayoffStage.cs" />
+    <Compile Include="Enums\ScoreCountingSystem.cs" />
     <Compile Include="Enums\TableCondition.cs" />
     <Compile Include="Enums\UserRoleType.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Models\Stage.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\TeamStageConfiguration.cs" />
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

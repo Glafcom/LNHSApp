@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED0FA37D-2B1E-4B22-AE7A-7B76B711CC04}</ProjectGuid>
+    <ProjectGuid>{B8D8D710-C30D-4AFD-B882-43B14BA688A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LNHSApp.DALContracts</RootNamespace>
-    <AssemblyName>LNHSApp.DALContracts</AssemblyName>
+    <RootNamespace>LNHSApp.Contracts</RootNamespace>
+    <AssemblyName>LNHSApp.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -85,14 +85,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\Identity\IApplicationSignInManager.cs" />
-    <Compile Include="Interfaces\Identity\IApplicationUserManager.cs" />
-    <Compile Include="Interfaces\IGenericRepository.cs" />
+    <Compile Include="DALContracts\Identity\IApplicationSignInManager.cs" />
+    <Compile Include="DALContracts\Identity\IApplicationUserManager.cs" />
+    <Compile Include="DALContracts\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LNHSApp.Domain\LNHSApp.Domain.csproj">
@@ -100,7 +96,10 @@
       <Name>LNHSApp.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

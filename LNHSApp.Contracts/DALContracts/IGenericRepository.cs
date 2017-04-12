@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LNHSApp.DALContracts.Interfaces
+namespace LNHSApp.Contracts.DALContracts
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {

@@ -57,6 +57,7 @@
     <Compile Include="Interfaces\Services\IStoreService.cs" />
     <Compile Include="Interfaces\Services\ITeamService.cs" />
     <Compile Include="Interfaces\Services\ITournamentService.cs" />
+    <Compile Include="Interfaces\Services\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -1,5 +1,5 @@
-﻿using LNHSApp.DAL.AppDbContext;
-using LNHSApp.DALContracts.Interfaces.Identity;
+﻿using LNHSApp.Contracts.DALContracts.Identity;
+using LNHSApp.DAL.AppDbContext;
 using LNHSApp.Domain.Models.Identity;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;

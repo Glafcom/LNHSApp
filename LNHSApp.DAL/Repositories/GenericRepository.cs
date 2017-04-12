@@ -1,9 +1,12 @@
-﻿using LNHSApp.DALContracts.Interfaces;
+﻿using LNHSApp.Contracts.DALContracts;
+using LNHSApp.DAL.AppDbContext;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +18,7 @@ namespace LNHSApp.DAL.Repositories
         /// <summary>
         /// DBContext to interact with the database
         /// </summary>        
-        private CompanyAppDbContext _context;
+        private LNHSAppDbContext _context;
 
         /// <summary>
         /// DBSet to interact with the table "Orders"
@@ -26,7 +29,7 @@ namespace LNHSApp.DAL.Repositories
         /// Constructor of the order's repository
         /// </summary>
         /// <param name="context">DBContext to interact with the database</param>
-        public GenericRepository(CompanyAppDbContext context)
+        public GenericRepository(LNHSAppDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();

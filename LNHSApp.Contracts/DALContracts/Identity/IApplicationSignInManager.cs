@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LNHSApp.DALContracts.Interfaces.Identity
+namespace LNHSApp.Contracts.DALContracts.Identity
 {
     public interface IApplicationSignInManager
     {

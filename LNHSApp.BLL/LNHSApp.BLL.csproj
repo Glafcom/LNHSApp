@@ -58,15 +58,12 @@
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\TeamService.cs" />
     <Compile Include="Services\TournamentService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LNHSApp.BLLContracts\LNHSApp.BLLContracts.csproj">
       <Project>{43B03358-371E-4479-B4DB-47D18AAC759D}</Project>
       <Name>LNHSApp.BLLContracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LNHSApp.DALContracts\LNHSApp.DALContracts.csproj">
-      <Project>{ED0FA37D-2B1E-4B22-AE7A-7B76B711CC04}</Project>
-      <Name>LNHSApp.DALContracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\LNHSApp.Domain\LNHSApp.Domain.csproj">
       <Project>{6F7710BF-88C9-4AE9-B898-5FE156B78CAE}</Project>

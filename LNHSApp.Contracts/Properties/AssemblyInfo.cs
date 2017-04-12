@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LNHSApp.DALContracts")]
+[assembly: AssemblyTitle("LNHSApp.Contracts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LNHSApp.DALContracts")]
+[assembly: AssemblyProduct("LNHSApp.Contracts")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ed0fa37d-2b1e-4b22-ae7a-7b76b711cc04")]
+[assembly: Guid("b8d8d710-c30d-4afd-b882-43b14ba688a6")]
 
 // Version information for an assembly consists of the following four values:
 //
