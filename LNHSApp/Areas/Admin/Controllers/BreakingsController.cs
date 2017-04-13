@@ -19,10 +19,11 @@ namespace LNHSApp.Areas.Admin.Controllers
         // GET: Admin/Breakings
         public ActionResult Index()
         {
+            var model = 
             return View();
         }
 
-        public ActionResult Details()
+        public ActionResult Order(Guid orderId)
         {
             return View();
         }

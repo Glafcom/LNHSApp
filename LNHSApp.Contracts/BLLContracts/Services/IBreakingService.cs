@@ -11,5 +11,6 @@ namespace LNHSApp.Contracts.BLLContracts.Services
     public interface IBreakingService : IBaseService<Breaking>
     {
         IEnumerable<Breaking> GetBreakingsByFilter(BreakingFilter filter);
+        void ResolveBreaking(Guid breakingId, Order outcomeOrder);
     }
 }

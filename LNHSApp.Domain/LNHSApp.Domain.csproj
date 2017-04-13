@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\BreakingState.cs" />
+    <Compile Include="Enums\OrderType.cs" />
     <Compile Include="Enums\PlayoffStage.cs" />
     <Compile Include="Enums\ScoreCountingSystem.cs" />
     <Compile Include="Enums\TableCondition.cs" />
@@ -77,6 +79,8 @@
     <Compile Include="Models\Identity\UserLogin.cs" />
     <Compile Include="Models\Identity\UserRole.cs" />
     <Compile Include="Models\Jingle.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\PlayoffStage.cs" />
     <Compile Include="Models\RoundRobinStage.cs" />
     <Compile Include="Models\Serie.cs" />

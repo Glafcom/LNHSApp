@@ -101,6 +101,8 @@
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\HockeyTableService.cs" />
     <Compile Include="Services\JingleService.cs" />
+    <Compile Include="Services\OrderItemService.cs" />
+    <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PlayoffStageService.cs" />
     <Compile Include="Services\RoundRobinStageService.cs" />
     <Compile Include="Services\SerieService.cs" />

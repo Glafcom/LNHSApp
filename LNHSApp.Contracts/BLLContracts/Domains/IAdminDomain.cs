@@ -29,11 +29,12 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         void DeleteDetail(Guid detailId);
 
         IEnumerable<Breaking> GetBreakings();
-        IEnumerable<Breaking> GetBreakingbyFilter(BreakingFilter filter);
+        IEnumerable<Breaking> GetBreakingsbyFilter(BreakingFilter filter);
         Breaking GetBreaking(Guid breakingId);
         void CreateBreaking(Breaking breaking);
+        void EditBreaking(Breaking breaking);
         void DeleteBreaking(Guid breakingId);
-        void ResolveBreaking(Guid breakingId, IEnumerable<Store> stores);
+        void ResolveBreaking(Guid breakingId, Order outcomeOrder);
 
     }
 }

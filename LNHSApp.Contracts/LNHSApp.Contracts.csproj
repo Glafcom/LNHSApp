@@ -95,6 +95,8 @@
     <Compile Include="BLLContracts\Services\IGameService.cs" />
     <Compile Include="BLLContracts\Services\IHockeyTableService.cs" />
     <Compile Include="BLLContracts\Services\IJingleService.cs" />
+    <Compile Include="BLLContracts\Services\IOrderItemService.cs" />
+    <Compile Include="BLLContracts\Services\IOrderService.cs" />
     <Compile Include="BLLContracts\Services\IPlayoffStageService.cs" />
     <Compile Include="BLLContracts\Services\IRoundRobinStageService.cs" />
     <Compile Include="BLLContracts\Services\ISerieService.cs" />

@@ -9,7 +9,7 @@ namespace LNHSApp.Domain.Models
 {
     public class Game : BaseModel
     {
-        public int Order { get; set; }
+        public int Round { get; set; }
 
         public DateTime? BeginTime { get; set; }
         public DateTime? EndTime { get; set; }

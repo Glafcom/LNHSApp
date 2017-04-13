@@ -108,11 +108,33 @@ namespace LNHSApp.BLL.Domains
             return _breakingService.GetItems();
         }
 
-        IEnumerable<Breaking> GetBreakingbyFilter(BreakingFilter filter);
-        Breaking GetBreaking(Guid breakingId);
-        void CreateBreaking(Breaking breaking);
-        void DeleteBreaking(Guid breakingId);
-        void ResolveBreaking(Guid breakingId, IEnumerable<Store> stores);
+        public IEnumerable<Breaking> GetBreakingsbyFilter(BreakingFilter filter)
+        {
+            return _breakingService.GetBreakingsByFilter(filter);
+        }
+
+        public Breaking GetBreaking(Guid breakingId)
+        {
+            return _breakingService.GetItem(breakingId);
+        }
+        public void CreateBreaking(Breaking breaking)
+        {
+            _breakingService.AddItem(breaking);
+        }
+
+        public void EditBreaking(Breaking breaking)
+        {
+            _breakingService.ChangeItem(breaking.Id, breaking);
+        }
+
+        public void DeleteBreaking(Guid breakingId)
+        {
+            _breakingService.DeleteItem(breakingId);
+        }
+        public void ResolveBreaking(Guid breakingId, Order outcomeOrder)
+        {
+            _breakingService.ResolveBreaking(breakingId, outcomeOrder);
+        }
 
         #endregion
 

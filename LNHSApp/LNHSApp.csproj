@@ -129,6 +129,8 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\StoreController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Models\BreakingsViewModels\BreakingsViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\BreakingsViewModels\BreakingViewModel.cs" />
     <Compile Include="Areas\Admin\Models\StoreViewModels\DetailsViewModel.cs" />
     <Compile Include="Areas\Admin\Models\StoreViewModels\DetailViewModel.cs" />
     <Compile Include="Areas\Admin\Models\StoreViewModels\StoreViewModel.cs" />

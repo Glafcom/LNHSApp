@@ -21,6 +21,8 @@ namespace LNHSApp.DAL.AppDbContext
         public DbSet<Game> Games { get; set; }
         public DbSet<HockeyTable> HockeyTables { get; set; }
         public DbSet<Jingle> Jingles { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<PlayoffStage> PlayoffStages { get; set; }
         public DbSet<RoundRobinStage> RoundRobinStages { get; set; }
         public DbSet<Serie> Series { get; set; }
