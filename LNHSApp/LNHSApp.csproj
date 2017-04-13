@@ -127,14 +127,21 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BreakingsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Admin\Controllers\StoreController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TablesController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Admin\Models\BreakingsViewModels\BlankBreakingViewModel.cs" />
     <Compile Include="Areas\Admin\Models\BreakingsViewModels\BreakingsViewModel.cs" />
     <Compile Include="Areas\Admin\Models\BreakingsViewModels\BreakingViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\OrdersViewModels\BlankOrderViewModel.cs" />
     <Compile Include="Areas\Admin\Models\StoreViewModels\DetailsViewModel.cs" />
     <Compile Include="Areas\Admin\Models\StoreViewModels\DetailViewModel.cs" />
     <Compile Include="Areas\Admin\Models\StoreViewModels\StoreViewModel.cs" />
     <Compile Include="Areas\Admin\Models\StoreViewModels\StoresViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\TablesViewModels\BlankHockeyTableViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\TablesViewModels\HockeyTablesViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\TablesViewModels\HockeyTableViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UsersViewModels\UsersViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UsersViewModels\UserViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -156,6 +163,8 @@
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Users\_UserFilter.cshtml" />
+    <Content Include="Areas\Admin\Views\Breakings\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Breakings\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -185,9 +194,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Breakings\" />
     <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Areas\Admin\Views\Orders\" />
     <Folder Include="Areas\Admin\Views\Store\" />
+    <Folder Include="Areas\Admin\Views\Tables\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

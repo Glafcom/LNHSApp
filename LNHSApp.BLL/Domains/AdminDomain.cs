@@ -17,12 +17,17 @@ namespace LNHSApp.BLL.Domains
         protected readonly IUserService _userService;
         protected readonly IDetailService _detailService;
         protected readonly IBreakingService _breakingService;
+        protected readonly IHockeyTableService _hockeyTableService;
 
-        public AdminDomain(IUserService userService, IDetailService detailService, IBreakingService breakingService)
+        public AdminDomain(IUserService userService, 
+            IDetailService detailService, 
+            IBreakingService breakingService,
+            IHockeyTableService hockeyTableService)
         {
             _userService = userService;
             _detailService = detailService;
             _breakingService = breakingService;
+            _hockeyTableService = hockeyTableService;
         }
 
         #region Users methods
@@ -138,6 +143,39 @@ namespace LNHSApp.BLL.Domains
 
         #endregion
 
+        #region Hockey tables methods
 
+        public IEnumerable<HockeyTable> GetHockeyTables()
+        {
+            return _hockeyTableService.GetItems();
+        }
+
+        public IEnumerable<HockeyTable> GetHockeyTablesByFilter(HockeyTableFilter filter)
+        {
+            return _hockeyTableService.GetHockeyTablesByFilter(filter);
+        }
+
+        public HockeyTable GetHockeyTable(Guid hockeyTableId)
+        {
+            return _hockeyTableService.GetItem(hockeyTableId);
+        }
+
+        public void AddHockeyTable(HockeyTable hockeyTable)
+        {
+            _hockeyTableService.AddItem(hockeyTable);
+        }
+
+        public void ChangeHockeyTable(HockeyTable hockeyTable)
+        {
+            _hockeyTableService.ChangeItem(hockeyTable.Id, hockeyTable);
+        }
+
+        public void DeleteHockeyTable(Guid hockeyTableId)
+        {
+            _hockeyTableService.DeleteItem(hockeyTableId);
+        }
+
+
+        #endregion
     }
 }

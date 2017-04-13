@@ -9,6 +9,6 @@ namespace LNHSApp.Areas.Admin.Models.BreakingsViewModels
     public class BreakingsViewModel
     {
         public BreakingFilter Filter { get; set; }
-        public IEnumerable<BreakingViewModel> BreakingsList { get; set; }
+        public ICollection<BreakingViewModel> BreakingsList { get; set; }
     }
 }

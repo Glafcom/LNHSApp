@@ -36,5 +36,12 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         void DeleteBreaking(Guid breakingId);
         void ResolveBreaking(Guid breakingId, Order outcomeOrder);
 
+
+        IEnumerable<HockeyTable> GetHockeyTables();
+        IEnumerable<HockeyTable> GetHockeyTablesByFilter(HockeyTableFilter filter);
+        HockeyTable GetHockeyTable(Guid hockeyTableId);
+        void AddHockeyTable(HockeyTable hockeyTable);
+        void ChangeHockeyTable(HockeyTable hockeyTable);
+        void DeleteHockeyTable(Guid hockeyTableId);
     }
 }

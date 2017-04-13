@@ -11,6 +11,8 @@ namespace LNHSApp.Domain.Models
     public class HockeyTable : BaseModel
     {
         public string Code { get; set; }
+        public string Model { get; set; }
+        public string Description { get; set; }
         public TableCondition Condition { get; set; }
         public Guid OwnerId { get; set; }
 

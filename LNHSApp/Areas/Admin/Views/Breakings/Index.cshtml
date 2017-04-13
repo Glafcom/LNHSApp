@@ -1,0 +1,102 @@
+﻿@using LNHSApp.Areas.Admin.Models.BreakingsViewModels;
+@model BreakingsViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Breakings</h2>
+
+<div class="breakings-container container">
+    @if (Model.BreakingsList != null && Model.BreakingsList.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Detail</th>
+                    <th>Hockey Table</th>
+                    <th>Description</th>
+                    <th>Guilties</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var breaking in Model.BreakingsList)
+                {
+                    bool isResolved = false;
+                    var statusClass = "active";
+                    var status = "Not Resolved";
+
+                    if (breaking.IsResolved.HasValue && (bool)breaking.IsResolved)
+                    {
+                        isResolved = true;
+                        statusClass = "resolved";
+                        status = "Resolved";
+                    }
+
+                    <tr class="breaking-row">
+                        <td class="@statusClass">@status</td>
+                        <td>
+                            @if (breaking.Game != null)
+                            {
+                                if (breaking.Game.EndTime.HasValue)
+                                {
+                                    @(((DateTime)breaking.Game.EndTime).ToString("dd.MM.yyyy"))
+                                }
+                                else if (breaking.Game.EndTime.HasValue)
+                                {
+                                    @(((DateTime)breaking.Game.BeginTime).ToString("dd.MM.yyyy"))
+                                }
+                            }
+                        </td>
+                        <td>
+                            @(breaking.Detail != null ? $"{breaking.Detail.Name} ({breaking.Detail.Code})" : string.Empty)
+                        </td>
+                        <td>
+                            @(breaking.HockeyTable != null ? $"({breaking.HockeyTable.Code}) {breaking.HockeyTable.Model}" : string.Empty )
+                        </td>
+                        <td>@breaking.Description</td>
+                        <td>
+                            @if (breaking.Guilties != null)
+                            {
+                                foreach (var guilty in breaking.Guilties)
+                                {
+                                    <span>@guilty.Name @guilty.Surname</span>
+                                }
+                            }
+                        </td>
+                        <td>
+                            @if (isResolved)
+                            {
+                                if (breaking.ResolvedWithOrderId.HasValue)
+                                {
+                                    <a href="@Url.Action("Order", "Orders", new { orderId = breaking.ResolvedWithOrderId })" class="btn btn-primary">View Order</a>
+                                }
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("CreateResolveOrder", "Orders", new { breakingId = breaking.Id })" class="btn btn-primary">Resolve</a>
+                            }
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Delete", "Breakings", new { breakingId = breaking.Id })" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>You haven't got any breakings</p>
+    }
+
+    <a href="@Url.Action("Create", "Breakings")" class="btn btn-primary">Create Breaking</a>
+
+
+</div>
+

@@ -67,6 +67,7 @@
     <Compile Include="Enums\UserState.cs" />
     <Compile Include="Filters\BreakingFilter.cs" />
     <Compile Include="Filters\DetailFilter.cs" />
+    <Compile Include="Filters\HockeyTableFilter.cs" />
     <Compile Include="Filters\UserFilter.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Breaking.cs" />

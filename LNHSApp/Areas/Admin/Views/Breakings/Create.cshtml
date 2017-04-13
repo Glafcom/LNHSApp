@@ -1,0 +1,47 @@
+﻿@using LNHSApp.Areas.Admin.Models.BreakingsViewModels;
+@model BlankBreakingViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Breaking</h2>
+
+@using (Html.BeginForm("Create", "Breakings", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.TableId)
+                @Html.DropDownListFor(m => m.TableId, new SelectList(ViewBag.HockeyTablesList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TableId)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.DetailId)
+                @Html.DropDownListFor(m => m.DetailId, new SelectList(ViewBag.DetailsList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.DetailId)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description)
+                @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}

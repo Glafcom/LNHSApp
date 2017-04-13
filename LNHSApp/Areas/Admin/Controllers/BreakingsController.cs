@@ -1,4 +1,8 @@
-﻿using LNHSApp.Contracts.BLLContracts.Domains;
+﻿using AutoMapper;
+using LNHSApp.Areas.Admin.Models.BreakingsViewModels;
+using LNHSApp.Contracts.BLLContracts.Domains;
+using LNHSApp.Domain.Filters;
+using LNHSApp.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +21,49 @@ namespace LNHSApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Breakings
-        public ActionResult Index()
+        public ActionResult Index(BreakingFilter filter)
         {
-            var model = 
-            return View();
+            var model = new BreakingsViewModel
+            {
+                Filter = filter,
+                BreakingsList = _adminDomain.GetBreakingsbyFilter(filter).Select(b => Mapper.Map<BreakingViewModel>(b)).ToList()
+            };
+            return View(model);
         }
 
-        public ActionResult Order(Guid orderId)
+        [HttpGet]
+        public ActionResult Create()
         {
-            return View();
+            return View(new BlankBreakingViewModel());
         }
 
+        [HttpPost]
+        public ActionResult Create(BlankBreakingViewModel model)
+        {
+            _adminDomain.CreateBreaking(Mapper.Map<Breaking>(model));
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(Guid breakingId)
+        {
+            var model =  Mapper.Map<BlankBreakingViewModel>(_adminDomain.GetBreaking(breakingId));
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(BlankBreakingViewModel model)
+        {
+            _adminDomain.EditBreaking(Mapper.Map<Breaking>(model));
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(Guid breakingId)
+        {
+            _adminDomain.DeleteBreaking(breakingId);
+            return RedirectToAction("Index");
+        }
 
     }
 }

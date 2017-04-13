@@ -10,6 +10,7 @@ namespace LNHSApp.Areas.Admin.Models.BreakingsViewModels
         public Guid Id { get; set; }
         public bool? IsResolved { get; set; }
         public string Description { get; set; }
+        public Guid? ResolvedWithOrderId { get; set; }
 
         public BreakingDetailViewModel Detail { get; set; }
         public BreakingGameViewModel Game { get; set; }
@@ -40,6 +41,7 @@ namespace LNHSApp.Areas.Admin.Models.BreakingsViewModels
     {
         public Guid Id { get; set; }
         public string Code { get; set; }
+        public string Model { get; set; }
     }
 
     public class BreakingGuiltyViewModel

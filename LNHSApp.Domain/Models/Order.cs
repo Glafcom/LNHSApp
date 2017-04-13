@@ -20,6 +20,7 @@ namespace LNHSApp.Domain.Models
         public DateTime Date { get; set; }
         public Guid BaileeId { get; set; }
         public OrderType Type { get; set; }
+        public string Note { get; set; }
 
         public virtual User Bailee { get; set; }
         public virtual ICollection<OrderItem> Items { get; set; }
