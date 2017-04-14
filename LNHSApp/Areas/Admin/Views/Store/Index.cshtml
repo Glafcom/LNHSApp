@@ -1,0 +1,59 @@
+﻿@using LNHSApp.Areas.Admin.Models.StoreViewModels;
+@model StoresViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hockey Tables</h2>
+
+<div class="store-hockey-tables-container container">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>Hockey tables</td>
+                <td>@Model.HockeyTablesCount</td>
+                <td>
+                    <a href="@Url.Action("Index", "Tables")" class="btn btn-primary">View Tables</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Details</h2>
+
+<div class="store-details-container container">
+    @if (Model.StoresList != null && Model.StoresList.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var store in Model.StoresList)
+                {
+                    <tr>
+                        <td>@store.Code</td>
+                        <td>@store.Name</td>
+                        <td>@store.Count</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>You haven't got any details in store</p>
+    }
+
+    <a href="@Url.Action("Create", "Orders")" class="btn btn-primary">Create order</a>
+
+</div>
+

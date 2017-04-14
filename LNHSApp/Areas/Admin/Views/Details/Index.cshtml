@@ -1,0 +1,53 @@
+﻿@using LNHSApp.Areas.Admin.Models.DetailsViewModels;
+@model DetailsViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="details-container container">
+    @if (Model.DetailsList != null && Model.DetailsList.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var detail in Model.DetailsList)
+                {
+                    <tr>
+                        <td>@detail.Code</td>
+                        <td>@detail.Name</td>
+                        <td>@detail.Description</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Details", new { detailId = detail.Id})" class="btn btn-default">Edit</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Delete", "Details", new { detailId = detail.Id})" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>You haven't got any details</p>
+    }
+
+    <a href="@Url.Action("Create", "Details")" class="btn btn-primary">Add</a>
+
+</div>
+
+
+

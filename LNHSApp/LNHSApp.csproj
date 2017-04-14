@@ -126,6 +126,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BreakingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
     <Compile Include="Areas\Admin\Controllers\StoreController.cs" />
@@ -135,8 +136,8 @@
     <Compile Include="Areas\Admin\Models\BreakingsViewModels\BreakingsViewModel.cs" />
     <Compile Include="Areas\Admin\Models\BreakingsViewModels\BreakingViewModel.cs" />
     <Compile Include="Areas\Admin\Models\OrdersViewModels\BlankOrderViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\StoreViewModels\DetailsViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\StoreViewModels\DetailViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\DetailsViewModels\DetailsViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\DetailsViewModels\DetailViewModel.cs" />
     <Compile Include="Areas\Admin\Models\StoreViewModels\StoreViewModel.cs" />
     <Compile Include="Areas\Admin\Models\StoreViewModels\StoresViewModel.cs" />
     <Compile Include="Areas\Admin\Models\TablesViewModels\BlankHockeyTableViewModel.cs" />
@@ -151,12 +152,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-select.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-select.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -167,6 +170,11 @@
     <Content Include="Areas\Admin\Views\Breakings\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Tables\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Tables\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Tables\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Details\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Details\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Details\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Store\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -198,7 +206,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Admin\Views\Orders\" />
-    <Folder Include="Areas\Admin\Views\Store\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

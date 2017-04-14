@@ -1,0 +1,44 @@
+﻿@using LNHSApp.Areas.Admin.Models.DetailsViewModels;
+@model DetailViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Detail</h2>
+
+@using (Html.BeginForm("Create", "Details", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Code)
+                @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Code)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description)
+                @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+}

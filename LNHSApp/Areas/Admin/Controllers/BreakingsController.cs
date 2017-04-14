@@ -34,6 +34,10 @@ namespace LNHSApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.HockeyTablesList = _adminDomain.GetHockeyTables()
+                .Select(ht => new SelectListItem { Value = ht.Id.ToString(), Text = $"{ht.Code} ({ht.Model})" });
+            ViewBag.DetailsList = _adminDomain.GetDetails()
+                .Select(d => new SelectListItem { Value = d.Id.ToString(), Text = $"({d.Code}) {d.Name}" });
             return View(new BlankBreakingViewModel());
         }
 
@@ -47,6 +51,10 @@ namespace LNHSApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(Guid breakingId)
         {
+            ViewBag.HockeyTablesList = _adminDomain.GetHockeyTables()
+                .Select(ht => new SelectListItem { Value = ht.Id.ToString(), Text = $"{ht.Code} ({ht.Model})" });
+            ViewBag.DetailsList = _adminDomain.GetDetails()
+                .Select(d => new SelectListItem { Value = d.Id.ToString(), Text = $"({d.Code}) {d.Name}" });
             var model =  Mapper.Map<BlankBreakingViewModel>(_adminDomain.GetBreaking(breakingId));
             return View(model);
         }

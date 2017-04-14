@@ -23,11 +23,42 @@ namespace LNHSApp.Areas.Admin.Controllers
             return View();
         }
 
-        /*[HttpGet]
+        [HttpGet]
+        public ActionResult Create()
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult Create(BlankOrderViewModel model)
+        {
+
+        }
+
+        [HttpGet]
+        public ActionResult Edit(Guid orderId)
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult Edit(BlankOrderViewModel model)
+        {
+
+        }
+
+        [HttpGet]
+        public ActionResult Delete(Guid orderId)
+        {
+
+        }
+
+        [HttpGet]
         public ActionResult CreateResolveOrder(Guid breakingId)
         {
             var breaking = _adminDomain.GetBreaking(breakingId);
+
             
-        }*/
+        }
     }
 }

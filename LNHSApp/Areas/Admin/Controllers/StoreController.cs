@@ -21,79 +21,15 @@ namespace LNHSApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Store
-        public ActionResult Index()
+        public ActionResult Index(DetailFilter filter)
         {
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult AddStores()
-        {
-            return View(new StoresViewModel());
-        } 
-
-        [HttpPost]
-        public ActionResult AddStores(StoresViewModel model)
-        {
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public ActionResult DeleteStores()
-        {
-            return View(new StoresViewModel());
-        }
-
-        [HttpPost]
-        public ActionResult DeleteStores(StoresViewModel model)
-        {
-            return RedirectToAction("Index");
-        }
-
-
-
-        public ActionResult Details(DetailFilter filter)
-        {
-            var model = new DetailsViewModel
+            var model = new StoresViewModel
             {
                 Filter = filter,
-                DetailsList = _adminDomain.GetDetailsByFilter(filter).Select(d => Mapper.Map<DetailViewModel>(d))
+                StoresList = _adminDomain.GetStoresByFilter(filter).Select(s => Mapper.Map<StoreViewModel>(s)).ToList(),
+                HockeyTablesCount = _adminDomain.GetHockeyTablesCount()
             };
             return View(model);
-        }
-
-        [HttpGet]
-        public ActionResult AddDetail()
-        {
-            return View(new DetailsViewModel());
-        }
-
-        [HttpPost]
-        public ActionResult AddDetail(DetailViewModel model)
-        {
-            _adminDomain.AddDetail(Mapper.Map<Detail>(model));
-            return RedirectToAction("Details");
-        }
-
-        [HttpGet]
-        public ActionResult EditDetail(Guid detailId)
-        {
-            var model = _adminDomain.GetDetail(detailId);
-            return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult EditDetail(DetailViewModel model)
-        {
-            _adminDomain.ChangeDetail(Mapper.Map<Detail>(model));
-            return RedirectToAction("Details");
-        }
-
-        [HttpGet]
-        public ActionResult DeleteDetail(Guid detailId)
-        {
-            _adminDomain.DeleteDetail(detailId);
-            return RedirectToAction("Details");
         }
     }
 }

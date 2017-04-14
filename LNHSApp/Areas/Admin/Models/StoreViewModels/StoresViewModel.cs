@@ -9,6 +9,7 @@ namespace LNHSApp.Areas.Admin.Models.StoreViewModels
     public class StoresViewModel
     {
         public DetailFilter Filter { get; set; }
-        public IEnumerable<StoreViewModel> DetailsList { get; set; }
+        public ICollection<StoreViewModel> StoresList { get; set; }
+        public int HockeyTablesCount { get; set; }
     }
 }

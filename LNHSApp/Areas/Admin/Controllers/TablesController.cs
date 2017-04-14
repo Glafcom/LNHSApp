@@ -28,7 +28,7 @@ namespace LNHSApp.Areas.Admin.Controllers
             var model = new HockeyTablesViewModel
             {
                 Filter = filter,
-                HockeyTablesList = _adminDomain.GetHockeyTablesByFilter(filter).Select(ht => Mapper.Map<HockeyTableViewModel>(ht))
+                HockeyTablesList = _adminDomain.GetHockeyTablesByFilter(filter).Select(ht => Mapper.Map<HockeyTableViewModel>(ht)).ToList()
             };
             return View(model);
         }
@@ -38,6 +38,8 @@ namespace LNHSApp.Areas.Admin.Controllers
         {
             ViewBag.TableConditionsList = EnumHelper.GetEnumDictionary<TableCondition>()
                 .Select(tc => new SelectListItem { Value = tc.Key.ToString(), Text = tc.Value });
+            ViewBag.UsersList = _adminDomain.GetUsers()
+                .Select(u => new SelectListItem { Value = u.Id.ToString(), Text = $"{u.Name} {u.Surname}" });
             return View(new BlankHockeyTableViewModel());
         }
 
@@ -53,6 +55,8 @@ namespace LNHSApp.Areas.Admin.Controllers
         {
             ViewBag.TableConditionsList = EnumHelper.GetEnumDictionary<TableCondition>()
                 .Select(tc => new SelectListItem { Value = tc.Key.ToString(), Text = tc.Value });
+            ViewBag.UsersList = _adminDomain.GetUsers()
+                .Select(u => new SelectListItem { Value = u.Id.ToString(), Text = $"{u.Name} {u.Surname}" });
 
             var model = Mapper.Map<BlankHockeyTableViewModel>(_adminDomain.GetHockeyTable(hockeyTableId));
             return View(model);

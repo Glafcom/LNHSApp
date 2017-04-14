@@ -18,16 +18,19 @@ namespace LNHSApp.BLL.Domains
         protected readonly IDetailService _detailService;
         protected readonly IBreakingService _breakingService;
         protected readonly IHockeyTableService _hockeyTableService;
+        protected readonly IStoreService _storeService;
 
         public AdminDomain(IUserService userService, 
             IDetailService detailService, 
             IBreakingService breakingService,
-            IHockeyTableService hockeyTableService)
+            IHockeyTableService hockeyTableService,
+            IStoreService storeService)
         {
             _userService = userService;
             _detailService = detailService;
             _breakingService = breakingService;
             _hockeyTableService = hockeyTableService;
+            _storeService = storeService;
         }
 
         #region Users methods
@@ -71,7 +74,20 @@ namespace LNHSApp.BLL.Domains
 
         #region Store methods
 
+        public IEnumerable<Store> GetStores()
+        {
+            return _storeService.GetItems();
+        }
 
+        public IEnumerable<Store> GetStoresByFilter(DetailFilter filter)
+        {
+            return _storeService.GetStoresByFilter(filter);
+        }
+
+
+        #endregion
+
+        #region Details methods
 
         public IEnumerable<Detail> GetDetails()
         {
@@ -82,7 +98,7 @@ namespace LNHSApp.BLL.Domains
         {
             return _detailService.GetDetailsByFilter(filter);
         }
-        
+
         public Detail GetDetail(Guid detailId)
         {
             return _detailService.GetItem(detailId);
@@ -102,7 +118,6 @@ namespace LNHSApp.BLL.Domains
         {
             _detailService.DeleteItem(detailId);
         }
-
 
         #endregion
 
@@ -173,6 +188,11 @@ namespace LNHSApp.BLL.Domains
         public void DeleteHockeyTable(Guid hockeyTableId)
         {
             _hockeyTableService.DeleteItem(hockeyTableId);
+        }
+
+        public int GetHockeyTablesCount()
+        {
+            return _hockeyTableService.GetItems().Count();
         }
 
 

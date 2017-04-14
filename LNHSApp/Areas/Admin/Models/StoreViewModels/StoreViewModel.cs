@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LNHSApp.Areas.Admin.Models.DetailsViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

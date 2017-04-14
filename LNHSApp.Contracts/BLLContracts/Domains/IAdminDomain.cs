@@ -20,6 +20,9 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         void GrantPermissions(Guid userId, UserRoles userRole);
         void RemovePermissions(Guid userId, UserRoles userRole);
 
+        IEnumerable<Store> GetStores();
+        IEnumerable<Store> GetStoresByFilter(DetailFilter filter);
+        
 
         IEnumerable<Detail> GetDetails();
         IEnumerable<Detail> GetDetailsByFilter(DetailFilter filter);
@@ -43,5 +46,6 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         void AddHockeyTable(HockeyTable hockeyTable);
         void ChangeHockeyTable(HockeyTable hockeyTable);
         void DeleteHockeyTable(Guid hockeyTableId);
+        int GetHockeyTablesCount();
     }
 }
