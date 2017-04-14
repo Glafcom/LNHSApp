@@ -1,0 +1,64 @@
+﻿@using LNHSApp.Areas.Admin.Models.TablesViewModels;
+@model BlankHockeyTableViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Hockey Table</h2>
+
+@using (Html.BeginForm("Create", "Tables", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Code)
+                @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Code)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Model)
+                @Html.TextBoxFor(m => m.Model, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Model)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Condition)
+                @Html.DropDownListFor(m => m.Condition, new SelectList(ViewBag.TableConditionsList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Condition)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description)
+                @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description)
+                @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+}

@@ -165,6 +165,8 @@
     <Content Include="Areas\Admin\Views\Users\_UserFilter.cshtml" />
     <Content Include="Areas\Admin\Views\Breakings\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Breakings\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Tables\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Tables\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -197,7 +199,6 @@
     <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Admin\Views\Orders\" />
     <Folder Include="Areas\Admin\Views\Store\" />
-    <Folder Include="Areas\Admin\Views\Tables\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

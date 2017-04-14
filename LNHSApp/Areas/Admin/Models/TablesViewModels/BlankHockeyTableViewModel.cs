@@ -8,6 +8,7 @@ namespace LNHSApp.Areas.Admin.Models.TablesViewModels
 {
     public class BlankHockeyTableViewModel
     {
+        public Guid Id { get; set; }
         public string Code { get; set; }
         public string Model { get; set; }
         public string Description { get; set; }

@@ -9,6 +9,6 @@ namespace LNHSApp.Areas.Admin.Models.TablesViewModels
     public class HockeyTablesViewModel
     {
         public HockeyTableFilter Filter { get; set; }
-        public IEnumerable<HockeyTableViewModel> HockeyTablesList { get; set; }
+        public ICollection<HockeyTableViewModel> HockeyTablesList { get; set; }
     }
 }

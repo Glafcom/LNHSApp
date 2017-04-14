@@ -1,0 +1,60 @@
+﻿@using LNHSApp.Areas.Admin.Models.TablesViewModels;
+@model HockeyTablesViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tables</h2>
+
+<div class="hockey-tables-container container">
+    @if (Model.HockeyTablesList != null && Model.HockeyTablesList.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Model</th>
+                    <th>Condition</th>
+                    <th>Owner</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var hockeyTable in Model.HockeyTablesList)
+                {
+                    <tr>
+                        <td>@hockeyTable.Code</td>
+                        <td>@hockeyTable.Model</td>
+                        <td>@hockeyTable.Condition.ToString()</td>
+                        <td>
+                            @(hockeyTable.Owner != null
+                                ? $"{hockeyTable.Owner.Name} {hockeyTable.Owner.Surname}"
+                                : string.Empty)
+                        </td>
+                        <td>@hockeyTable.Description</td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Tables", new { hockeyTableId = hockeyTable.Id})" class="btn btn-default">Edit</a>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Delete", "Tables", new { hockeyTableId = hockeyTable.Id})" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>You haven't got any hockey tables</p>
+    }
+
+    <a href="@Url.Action("Create", "Tables")" class="btn btn-primary">Add Table</a>
+
+</div>
+
+
