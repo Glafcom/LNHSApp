@@ -23,7 +23,7 @@ namespace LNHSApp.Areas.Admin.Controllers
             return View();
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public ActionResult Create()
         {
 
@@ -56,9 +56,7 @@ namespace LNHSApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult CreateResolveOrder(Guid breakingId)
         {
-            var breaking = _adminDomain.GetBreaking(breakingId);
-
-            
-        }
+            var breaking = _adminDomain.GetBreaking(breakingId);            
+        }*/
     }
 }

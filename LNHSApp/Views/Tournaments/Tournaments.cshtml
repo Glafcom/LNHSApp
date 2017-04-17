@@ -1,0 +1,50 @@
+﻿@using LNHSApp.Models.TournamentsViewModels;
+@model TournamentsViewModel
+
+@{
+    ViewBag.Title = "AllTournaments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Tournaments</h2>
+
+<div class="tournaments-container container">
+    @if (Model.TournamentsList != null && Model.TournamentsList.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>State</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tournament in Model.TournamentsList)
+                {
+                    <tr>
+                        <td>@tournament.Name (@tournament.Serie)</td>
+                        <td>@tournament.BeginDate.ToString("dd.MM.yyyy")</td>
+                        <td>@(tournament.State)</td>
+                        <td>@tournament.Country</td>
+                        <td>@tournament.City</td>
+                        <td>@tournament.Description</td>
+                        <td>
+                            <a href="@Url.Action("Tournament", "Tournaments", new { tournamentId = tournament.Id })" class="btn btn-default">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>There are no tournaments</p>
+    }
+    
+</div>
+

@@ -145,10 +145,24 @@
     <Compile Include="Areas\Admin\Models\TablesViewModels\HockeyTableViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UsersViewModels\UsersViewModel.cs" />
     <Compile Include="Areas\Admin\Models\UsersViewModels\UserViewModel.cs" />
+    <Compile Include="Areas\Player\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Player\Controllers\TournamentsController.cs" />
+    <Compile Include="Areas\Player\Models\TournamentsViewModels\TournamentsIndexViewModel.cs" />
+    <Compile Include="Areas\Player\Models\TournamentsViewModels\BaseTournamentViewModel.cs" />
+    <Compile Include="Areas\Player\PlayerAreaRegistration.cs" />
+    <Compile Include="Areas\TournamentAdmin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\TournamentAdmin\Controllers\TournamentsController.cs" />
+    <Compile Include="Areas\TournamentAdmin\TournamentAdminAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TournamentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\TournamentsViewModels\BaseTournamentViewModel.cs" />
+    <Compile Include="Models\TournamentsViewModels\BlankTournamentViewModel.cs" />
+    <Compile Include="Models\TournamentsViewModels\TournamentsIndexViewModel.cs" />
+    <Compile Include="Models\TournamentsViewModels\TournamentsViewModel.cs" />
+    <Compile Include="Models\TournamentsViewModels\TournamentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +189,8 @@
     <Content Include="Areas\Admin\Views\Details\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Details\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Store\Index.cshtml" />
+    <Content Include="Areas\TournamentAdmin\Views\web.config" />
+    <Content Include="Areas\Player\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -201,12 +217,21 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Tournaments\Index.cshtml" />
+    <Content Include="Views\Tournaments\Tournaments.cshtml" />
+    <Content Include="Views\Tournaments\Tournament.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Home\" />
     <Folder Include="Areas\Admin\Views\Orders\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Player\Views\Home\" />
+    <Folder Include="Areas\Player\Views\Shared\" />
+    <Folder Include="Areas\Player\Views\Tournaments\" />
+    <Folder Include="Areas\TournamentAdmin\Models\" />
+    <Folder Include="Areas\TournamentAdmin\Views\Home\" />
+    <Folder Include="Areas\TournamentAdmin\Views\Shared\" />
+    <Folder Include="Areas\TournamentAdmin\Views\Tournaments\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

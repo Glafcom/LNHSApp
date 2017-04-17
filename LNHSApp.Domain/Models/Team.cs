@@ -15,6 +15,9 @@ namespace LNHSApp.Domain.Models
         }
 
         public string Name { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public int Rating { get; set; }
         public string Description { get; set; }
 
         public virtual ICollection<User> Players { get; set; }

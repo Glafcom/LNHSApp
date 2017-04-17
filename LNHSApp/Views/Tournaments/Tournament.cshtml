@@ -1,0 +1,162 @@
+﻿@using LNHSApp.Models.TournamentsViewModels;
+@model TournamentViewModel
+
+@{
+    ViewBag.Title = "Tournament";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ 
+    var isTeam = Model.IsTeam.HasValue && (bool)Model.IsTeam;
+}
+
+<h2>Tournament</h2>
+
+<div class="tournament-container">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#main" aria-controls="main" role="tab" data-toggle="tab">Main info</a></li>
+        <li role="presentation"><a href="#stages" aria-controls="stages" role="tab" data-toggle="tab">Stages</a></li>
+        <li role="presentation"><a href="#competitors" aria-controls="competitors" role="tab" data-toggle="tab">@(isTeam ? "Teams" : "Players")</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="main">
+            <div class="tournament-main-info-container container">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>@Model.Name</td>
+                        </tr>
+                        <tr>
+                            <td>Serie</td>
+                            <td>@Model.Serie</td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>@(isTeam ? "Team" : "Individual" )</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>@Model.State</td>
+                        </tr>
+                        <tr>
+                            <td>Country</td>
+                            <td>@Model.Country</td>
+                        </tr>
+                        <tr>
+                            <td>City</td>
+                            <td>@Model.City</td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td>@Model.Address</td>
+                        </tr>
+                        <tr>
+                            <td>Date</td>
+                            <td>@Model.BeginDate.ToString("dd.MM.yyyy")</td>
+                        </tr>
+                        <tr>
+                            <td>Start Registrstion Date</td>
+                            <td>@Model.StartRegistrationDate</td>
+                        </tr>
+                        <tr>
+                            <td>End Registration Date</td>
+                            <td>@Model.EndRegistrationDate</td>
+                        </tr>
+                        @if (isTeam)
+                        {
+                            <tr>
+                                <td>Teams</td>
+                                <td>@(Model.Teams != null ? Model.Teams.Count : 0)</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>Players</td>
+                                <td>@(Model.Players != null ? Model.Players.Count : 0)</td>
+                            </tr>
+                        }
+                        
+                        <tr>
+                            <td>Description</td>
+                            <td>@Model.Description</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="stages">
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="competitors">
+            <div class="tournament-competitors-container container">
+                @if (isTeam)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Rating</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var team in Model.Teams)
+                            {
+                                <tr>
+                                    <td>@team.Name</td>
+                                    <td>@team.Country</td>
+                                    <td>@team.City</td>
+                                    <td>@team.Rating</td>
+                                    <td>
+                                        <a href="@Url.Action("Team", "Teams", new { teamId = team.Id })" class="btn btn-default">Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Age</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Rating</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var player in Model.Players)
+                            {
+                                <tr>
+                                    <td>@player.Name</td>
+                                    <td>@player.Surname</td>
+                                    <td>@player.Age</td>
+                                    <td>@player.Country</td>
+                                    <td>@player.City</td>
+                                    <td>@player.Rating</td>
+                                    <td>
+                                        <a href="@Url.Action("Player", "Players", new { playerId = player.Id })" class="btn btn-default">Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                
+            </div>
+        </div>
+        
+    </div>
+</div>
+

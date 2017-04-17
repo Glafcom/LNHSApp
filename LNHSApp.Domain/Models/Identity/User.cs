@@ -21,6 +21,7 @@ namespace LNHSApp.Domain.Models.Identity
         public string City { get; set; }
         public bool? IsBlocked { get; set; }
         public DateTime DayOfBirth { get; set; }
+        public int Rating { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User, Guid> manager)
         {

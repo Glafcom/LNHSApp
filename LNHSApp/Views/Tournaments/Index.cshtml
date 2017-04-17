@@ -1,0 +1,198 @@
+﻿@using LNHSApp.Models.TournamentsViewModels;
+@model TournamentsIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="tournaments-container container">
+    <div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#allTournaments" aria-controls="all-tournaments" role="tab" data-toggle="tab">All Tournaments</a></li>
+            <li role="presentation"><a href="#currTournaments" aria-controls="current-tournaments" role="tab" data-toggle="tab">Current Tournaments</a></li>
+            <li role="presentation"><a href="#upcomingTournaments" aria-controls="upcoming-tournaments" role="tab" data-toggle="tab">Upcoming Tournaments</a></li>
+            <li role="presentation"><a href="#pastTournaments" aria-controls="past-tournaments" role="tab" data-toggle="tab">Past Tournaments</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="allTournaments">
+                @if (Model.AllTournaments != null && Model.AllTournaments.Count > 0)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>State</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var tournament in Model.AllTournaments)
+                            {
+                                <tr>
+                                    <td>@tournament.Name (@tournament.Serie)</td>
+                                    <td>@tournament.BeginDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@(tournament.State)</td>
+                                    <td>@tournament.Country</td>
+                                    <td>@tournament.City</td>
+                                    <td>@tournament.Description</td>
+                                    <td>
+                                        <a href="@Url.Action("Tournament", "Tournaments", new { tournamentId = tournament.Id })" class="btn btn-default">Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    if (Model.AllTournaments.Count > 10)
+                    {
+                        <a href="@Url.Action("AllTournaments", "Tournaments")" class="btn btn-default">More</a>
+                    }
+                }
+                else
+                {
+                    <p>There are no tournaments</p>
+                }
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="currTournaments">
+                @if (Model.CurrentTournaments != null && Model.CurrentTournaments.Count > 0)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>State</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var tournament in Model.CurrentTournaments)
+                            {
+                                <tr>
+                                    <td>@tournament.Name (@tournament.Serie)</td>
+                                    <td>@tournament.BeginDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@(tournament.State)</td>
+                                    <td>@tournament.Country</td>
+                                    <td>@tournament.City</td>
+                                    <td>@tournament.Description</td>
+                                    <td>
+                                        <a href="@Url.Action("Tournament", "Tournaments", new { tournamentId = tournament.Id })" class="btn btn-default">Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    if (Model.CurrentTournaments.Count > 10)
+                    {
+                        <a href="@Url.Action("CurrentTournaments", "Tournaments")" class="btn btn-default">More</a>
+                    }
+                }
+                else
+                {
+                    <p>There are no tournaments</p>
+                }
+                
+            </div>
+            <div role="tabpanel" class="tab-pane" id="upcomingTournaments">
+                @if (Model.UpcomingTournaments != null && Model.UpcomingTournaments.Count > 0)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>State</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var tournament in Model.UpcomingTournaments)
+                            {
+                                <tr>
+                                    <td>@tournament.Name (@tournament.Serie)</td>
+                                    <td>@tournament.BeginDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@(tournament.State)</td>
+                                    <td>@tournament.Country</td>
+                                    <td>@tournament.City</td>
+                                    <td>@tournament.Description</td>
+                                    <td>
+                                        <a href="@Url.Action("Tournament", "Tournaments", new { tournamentId = tournament.Id })" class="btn btn-default">Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    if (Model.UpcomingTournaments.Count > 10)
+                    {
+                        <a href="@Url.Action("UpcomingTournaments", "Tournaments")" class="btn btn-default">More</a>
+                    }
+                }
+                else
+                {
+                    <p>There are no tournaments</p>
+                }
+                
+            </div>
+            <div role="tabpanel" class="tab-pane" id="pastTournaments">
+                @if (Model.PastTournaments != null && Model.PastTournaments.Count > 0)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>State</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Description</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var tournament in Model.PastTournaments)
+                            {
+                                <tr>
+                                    <td>@tournament.Name (@tournament.Serie)</td>
+                                    <td>@tournament.BeginDate.ToString("dd.MM.yyyy")</td>
+                                    <td>@(tournament.State)</td>
+                                    <td>@tournament.Country</td>
+                                    <td>@tournament.City</td>
+                                    <td>@tournament.Description</td>
+                                    <td>
+                                        <a href="@Url.Action("Tournament", "Tournaments", new { tournamentId = tournament.Id })" class="btn btn-default">Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    if (Model.PastTournaments.Count > 10)
+                    {
+                        <a href="@Url.Action("PastTournaments", "Tournaments")" class="btn btn-default">More</a>
+                    }
+                }
+                else
+                {
+                    <p>There are no tournaments</p>
+                }
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,4 +1,5 @@
-﻿using LNHSApp.Domain.Models.Identity;
+﻿using LNHSApp.Domain.Enums;
+using LNHSApp.Domain.Models.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,9 @@ namespace LNHSApp.Domain.Models
         public string Description { get; set; }
         public DateTime BeginDate { get; set; }
         public DateTime? EndDate { get; set; }
+        public DateTime StartRegistrationDate { get; set; }
+        public DateTime EndRegistrationDate { get; set; }
+        public TournamentState State { get; set; }
         public Guid? SerieId { get; set; }
         public string Country { get; set; } 
         public string City { get; set; }

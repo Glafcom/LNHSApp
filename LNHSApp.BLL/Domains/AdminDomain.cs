@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace LNHSApp.BLL.Domains
 {
-    public class AdminDomain : IAdminDomain
+    public class AdminDomain : User, IAdminDomain
     {
         protected readonly IUserService _userService;
         protected readonly IDetailService _detailService;
