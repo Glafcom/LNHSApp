@@ -1,0 +1,48 @@
+﻿@using LNHSApp.Models.PlayersViewModels;
+@model PlayersViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Players</h2>
+
+<div class="players-container container">
+    @if (Model.PlayersList != null && Model.PlayersList.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Age</th>
+                    <th>Country</th>
+                    <th>City</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var player in Model.PlayersList)
+                {
+                    <tr>
+                        <td>@player.Name</td>
+                        <td>@player.Surname</td>
+                        <td>@player.Age</td>
+                        <td>@player.Country</td>
+                        <td>@player.City</td>
+                        <td>
+                            <a href="@Url.Action("Player", "Players", new { playerId = player.Id })" class="btn btn-default">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>There are no players</p>
+    }
+    
+</div>
+

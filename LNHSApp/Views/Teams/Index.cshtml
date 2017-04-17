@@ -1,0 +1,40 @@
+﻿@using LNHSApp.Models.TeamsViewModels;
+@model TeamsViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Teams</h2>
+
+<div class="teams-container container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Rating</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var team in Model.TeamsList)
+            {
+                <tr>
+                    <td>@team.Name</td>
+                    <td>@team.Country</td>
+                    <td>@team.City</td>
+                    <td>@team.Rating</td>
+                    <td>@team.Description</td>
+                    <td>
+                        <a href="@Url.Action("Team", "Teams", new { teamId = team.Id })" class="btn btn-default">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

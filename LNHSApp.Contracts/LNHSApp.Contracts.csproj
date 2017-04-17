@@ -88,7 +88,7 @@
     <Compile Include="BLLContracts\Domains\IAdminDomain.cs" />
     <Compile Include="BLLContracts\Domains\IGuestDomain.cs" />
     <Compile Include="BLLContracts\Domains\IPlayerDomain.cs" />
-    <Compile Include="BLLContracts\Domains\ITournamentAdminDomain.cs" />
+    <Compile Include="BLLContracts\Domains\ISupervisorDomain.cs" />
     <Compile Include="BLLContracts\Services\IBaseService.cs" />
     <Compile Include="BLLContracts\Services\IBreakingService.cs" />
     <Compile Include="BLLContracts\Services\IDetailService.cs" />

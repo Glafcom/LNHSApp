@@ -1,5 +1,6 @@
 ﻿using LNHSApp.Domain.Filters;
 using LNHSApp.Domain.Models;
+using LNHSApp.Domain.Models.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,14 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         IEnumerable<Tournament> GetCurrentTournamentsByFilter(TournamentFilter filter);
         IEnumerable<Tournament> GetUpcomingTournaments();
         IEnumerable<Tournament> GetUpcomingTournamentsByFilter(TournamentFilter filter);
-
         Tournament GetTournament(Guid tournamentId);
+
+        IEnumerable<Team> GetTeams();
+        IEnumerable<Team> GetTeamsByFilter(TeamFilter filter);
+        Team GetTeam(Guid teamId);
+
+        IEnumerable<User> GetPlayers();
+        IEnumerable<User> GetPlayersByFilter(PlayerFilter filter);
+        User GetPlayer(Guid playerId);
     }
 }

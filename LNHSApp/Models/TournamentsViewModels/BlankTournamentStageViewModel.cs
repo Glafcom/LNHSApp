@@ -5,7 +5,8 @@ using System.Web;
 
 namespace LNHSApp.Models.TournamentsViewModels
 {
-    public class BlankTournamentViewModel
+    public class BlankTournamentStageViewModel
     {
+
     }
 }

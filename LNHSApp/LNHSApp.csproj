@@ -150,16 +150,26 @@
     <Compile Include="Areas\Player\Models\TournamentsViewModels\TournamentsIndexViewModel.cs" />
     <Compile Include="Areas\Player\Models\TournamentsViewModels\BaseTournamentViewModel.cs" />
     <Compile Include="Areas\Player\PlayerAreaRegistration.cs" />
-    <Compile Include="Areas\TournamentAdmin\Controllers\HomeController.cs" />
-    <Compile Include="Areas\TournamentAdmin\Controllers\TournamentsController.cs" />
-    <Compile Include="Areas\TournamentAdmin\TournamentAdminAreaRegistration.cs" />
+    <Compile Include="Areas\Supervisor\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Supervisor\Controllers\TournamentsController.cs" />
+    <Compile Include="Areas\Supervisor\TournamentAdminAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TournamentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PlayersViewModels\PlayersViewModel.cs" />
+    <Compile Include="Models\PlayersViewModels\PlayerViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\PlayoffPlayerResultsViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\RRPlayerResultsViewModel.cs" />
+    <Compile Include="Models\TeamsViewModels\TeamsViewModel.cs" />
+    <Compile Include="Models\TeamsViewModels\TeamViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\BaseTournamentViewModel.cs" />
-    <Compile Include="Models\TournamentsViewModels\BlankTournamentViewModel.cs" />
+    <Compile Include="Models\TournamentsViewModels\BlankTournamentStageViewModel.cs" />
+    <Compile Include="Models\TournamentsViewModels\CreateTournamentViewModel.cs" />
+    <Compile Include="Models\TournamentsViewModels\EditTournamentViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\TournamentsIndexViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\TournamentsViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\TournamentViewModel.cs" />
@@ -189,7 +199,7 @@
     <Content Include="Areas\Admin\Views\Details\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Details\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Store\Index.cshtml" />
-    <Content Include="Areas\TournamentAdmin\Views\web.config" />
+    <Content Include="Areas\Supervisor\Views\web.config" />
     <Content Include="Areas\Player\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -220,6 +230,11 @@
     <Content Include="Views\Tournaments\Index.cshtml" />
     <Content Include="Views\Tournaments\Tournaments.cshtml" />
     <Content Include="Views\Tournaments\Tournament.cshtml" />
+    <Content Include="Views\Teams\Index.cshtml" />
+    <Content Include="Views\Teams\Team.cshtml" />
+    <Content Include="Views\Players\Index.cshtml" />
+    <Content Include="Views\Players\Player.cshtml" />
+    <Content Include="Views\Tournaments\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -228,10 +243,11 @@
     <Folder Include="Areas\Player\Views\Home\" />
     <Folder Include="Areas\Player\Views\Shared\" />
     <Folder Include="Areas\Player\Views\Tournaments\" />
-    <Folder Include="Areas\TournamentAdmin\Models\" />
-    <Folder Include="Areas\TournamentAdmin\Views\Home\" />
-    <Folder Include="Areas\TournamentAdmin\Views\Shared\" />
-    <Folder Include="Areas\TournamentAdmin\Views\Tournaments\" />
+    <Folder Include="Areas\Supervisor\Models\" />
+    <Folder Include="Areas\Supervisor\Views\Home\" />
+    <Folder Include="Areas\Supervisor\Views\Shared\" />
+    <Folder Include="Areas\Supervisor\Views\Tournaments\" />
+    <Folder Include="Views\Stages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

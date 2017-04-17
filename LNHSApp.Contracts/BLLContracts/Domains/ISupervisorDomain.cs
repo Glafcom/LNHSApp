@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LNHSApp.Contracts.BLLContracts.Domains 
 {
-    public interface ITournamentAdminDomain
+    public interface ISupervisorDomain
     {
         IEnumerable<Tournament> GetTournaments();
         IEnumerable<Tournament> GetTournamentsByFilter(TournamentFilter filter);
@@ -18,5 +18,13 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         void CreateTournament(Tournament tournament);
         void EditTournament(Tournament tournament);
         void DeleteTournament(Guid tournamentId);
+
+        void CreateRoundRobinStage(RoundRobinStage stage);
+        void EditRoundRobinStage(RoundRobinStage stage);
+        void DeleteRoundRobinStage(Guid stageId);
+
+        void CreatePlayoffStage(PlayoffStage stage);
+        void EditPlayoffStage(PlayoffStage stage);
+        void DeletePlayoffStage(Guid stageId);
     }
 }

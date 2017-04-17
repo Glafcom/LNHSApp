@@ -1,4 +1,5 @@
-﻿using LNHSApp.Contracts.BLLContracts.Services;
+﻿using LNHSApp.BLL.Identity;
+using LNHSApp.Contracts.BLLContracts.Services;
 using LNHSApp.Contracts.DALContracts;
 using LNHSApp.Contracts.DALContracts.Identity;
 using LNHSApp.Domain.Enums;
@@ -15,7 +16,7 @@ namespace LNHSApp.BLL.Services
     public class UserService : BaseService<User>, IUserService
     {
         protected readonly IApplicationUserManager _userManager;
-
+        
         public UserService(IGenericRepository<User> itemRepository, IApplicationUserManager userManager)
             : base(itemRepository)
         {
@@ -97,6 +98,51 @@ namespace LNHSApp.BLL.Services
 
             return true;
         }
+
+        #region Players methods
+
+        public IEnumerable<User> GetPlayers()
+        {
+            return GetItems().Where(u => _userManager.IsInRoleAsync(u.Id, "Player").Result && (!u.IsBlocked.HasValue || !(bool)u.IsBlocked));
+        }
+
+        public IEnumerable<User> GetPlayersByFilter(PlayerFilter filter)
+        {
+            var players = GetPlayers();
+                        
+            if (!string.IsNullOrEmpty(filter.Name))
+                players = players.Where(p => p.Name.Contains(filter.Name));
+
+            if (!string.IsNullOrEmpty(filter.Surname))
+                players = players.Where(p => p.Surname.Contains(filter.Surname));
+
+            if (!string.IsNullOrEmpty(filter.Country))
+                players = players.Where(p => p.Country.Contains(filter.Country));
+
+            if (!string.IsNullOrEmpty(filter.City))
+                players = players.Where(p => p.City.Contains(filter.City));
+
+            if (filter.MinAge != null)
+            {
+                var targetDate = DateTime.Now.AddYears(-(int)filter.MinAge);
+                players = players.Where(u => u.DayOfBirth <= targetDate);
+            }
+
+            if (filter.MaxAge != null)
+            {
+                var targetDate = DateTime.Now.AddYears(-(int)filter.MaxAge);
+                players = players.Where(u => u.DayOfBirth >= targetDate);
+            }
+
+            return players;
+        }
+
+        public User GetPlayer(Guid playerId)
+        {
+            return GetPlayers().FirstOrDefault(p => p.Id == playerId);
+        }
+
+        #endregion
 
         private void ChangeUserStatus(Guid userId, bool isBlocked)
         {

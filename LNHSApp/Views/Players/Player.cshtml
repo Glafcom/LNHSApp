@@ -1,0 +1,41 @@
+﻿@using LNHSApp.Models.PlayersViewModels;
+@model PlayerViewModel
+
+@{
+    ViewBag.Title = "Player";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Player Info</h2>
+
+<div class="player-info-container container">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td>Current Rating</td>
+                <td>@Model.Raiting</td>
+            </tr>
+            <tr>
+                <td>Surname</td>
+                <td>@Model.Surname</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>@Model.Age</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td>@Model.Country</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>@Model.City</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

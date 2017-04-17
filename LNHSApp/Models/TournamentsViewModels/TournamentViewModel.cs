@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LNHSApp.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace LNHSApp.Models.TournamentsViewModels
     {
         public ICollection<TournamentPlayer> Players { get; set; }
         public ICollection<TournamentTeam> Teams { get; set; }
+        public ICollection<TournamentStage> Stages { get; set; }
     }
 
     public class TournamentPlayer
@@ -36,7 +38,10 @@ namespace LNHSApp.Models.TournamentsViewModels
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public StageType Type { get; set; }
+        public StageStatus Status { get; set; }
         public DateTime? BeginDate { get; set; }
         public DateTime? EndDate { get; set; }
+        public int Order { get; set; }
     }
 }

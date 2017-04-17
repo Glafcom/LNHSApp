@@ -122,6 +122,16 @@ namespace LNHSApp.BLL.Services
             return GetSubscribedTournamentsByFilter(playerId, filter).Where(st => st.BeginDate.Date > DateTime.Now.Date);
         }
 
+        public IEnumerable<Tournament> GetOwnTournaments(Guid userId)
+        {
+            return GetItems().Where(t => t.CreatedById == userId);
+        }
+
+        public IEnumerable<Tournament> GetOwnTournamentsByFilter(Guid userId, TournamentFilter filter)
+        {
+            return GetTournamentsByFilter(filter).Where(t => t.CreatedById == userId);
+        }
+
         public void SubscribeToTournament(Guid userId, Guid tournamentId)
         {
             var tournament = GetItem(tournamentId);

@@ -1,4 +1,5 @@
 ﻿@using LNHSApp.Models.TournamentsViewModels;
+@using LNHSApp.Domain.Enums;
 @model TournamentViewModel
 
 @{
@@ -18,6 +19,10 @@
         <li role="presentation" class="active"><a href="#main" aria-controls="main" role="tab" data-toggle="tab">Main info</a></li>
         <li role="presentation"><a href="#stages" aria-controls="stages" role="tab" data-toggle="tab">Stages</a></li>
         <li role="presentation"><a href="#competitors" aria-controls="competitors" role="tab" data-toggle="tab">@(isTeam ? "Teams" : "Players")</a></li>
+        @if (Model.State == TournamentState.Ended)
+        {
+            <li role="presentation"><a href="#results" aria-controls="results" role="tab" data-toggle="tab">results</a></li>
+        }
     </ul>
 
     <div class="tab-content">
@@ -90,6 +95,36 @@
         </div>
         <div role="tabpanel" class="tab-pane" id="stages">
 
+            <div class="tournament-stages-container container">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Type</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var stage in Model.Stages.OrderBy(s => s.Order))
+                        {
+                            <tr>
+                                <td>@stage.Order</td>
+                                <td>@stage.Type.ToString()</td>
+                                <td>@stage.Name</td>
+                                <td>@stage.Status.ToString()</td>
+                                <td>
+                                    <a href="@Url.Action("Stage", "Stages", new { stageId = stage.Id })" class="btn btn-default">Details</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                
+            </div>
+
         </div>
         <div role="tabpanel" class="tab-pane" id="competitors">
             <div class="tournament-competitors-container container">
@@ -156,6 +191,12 @@
                 
             </div>
         </div>
+        @if (Model.State == TournamentState.Ended)
+        {
+            <div role="tabpanel" class="tab-pane" id="results">
+
+            </div>
+        }
         
     </div>
 </div>

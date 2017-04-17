@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using LNHSApp.Contracts.BLLContracts.Domains;
 using LNHSApp.Domain.Filters;
+using LNHSApp.Domain.Models;
+using LNHSApp.Models.StagesViewModels;
 using LNHSApp.Models.TournamentsViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,10 +15,12 @@ namespace LNHSApp.Controllers
     public class TournamentsController : Controller
     {
         protected readonly IGuestDomain _guestDomain;
+        protected readonly ISupervisorDomain _supervisorDomain;
 
-        public TournamentsController(IGuestDomain guestDomain)
+        public TournamentsController(IGuestDomain guestDomain, ISupervisorDomain supervisorDomain)
         {
             _guestDomain = guestDomain;
+            _supervisorDomain = supervisorDomain;
         }
 
         // GET: Tournaments
@@ -99,36 +103,101 @@ namespace LNHSApp.Controllers
             var model = Mapper.Map<TournamentViewModel>(tournament);
             return View(model);
         }
-
+        
         [HttpGet]
         public ActionResult Create()
         {
-
+            return View(new BlankTournamentViewModel());
         }
 
         [HttpPost]
         public ActionResult Create(BlankTournamentViewModel model)
         {
-
+            _supervisorDomain.CreateTournament(Mapper.Map<Tournament>(model));
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
         public ActionResult Edit(Guid tournamentId)
         {
-
+            var tournament = _supervisorDomain.GetTournament(tournamentId);
+            var model = Mapper.Map<BlankTournamentViewModel>(tournament);
+            return View(model);
         }
 
         [HttpPost]
         public ActionResult Edit(BlankTournamentViewModel model)
         {
-
+            _supervisorDomain.EditTournament(Mapper.Map<Tournament>(model));
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
         public ActionResult Delete(Guid tournamentId)
         {
+            _supervisorDomain.DeleteTournament(tournamentId);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Stage(Guid stageId)
+        {
 
         }
 
+
+        [HttpGet]
+        public ActionResult RRPlayerResults(Guid stageId)
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult RRPlayerResults(RRPlayerResultsViewModel model)
+        {
+
+        }
+
+        [HttpGet]
+        public ActionResult PlayoffPlayerResults(Guid stageId)
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult PlayoffPlayerResults(PlayoffPlayerResultsViewModel model)
+        {
+
+        }
+
+        [HttpGet]
+        public ActionResult CreateStage()
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult CreateStage(BlankTournamentStageViewModel model)
+        {
+
+        }
+
+        [HttpGet]
+        public ActionResult EditStage(Guid stageId)
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult EditStage(BlankTournamentStageViewModel)
+        {
+
+        }
+
+        [HttpPost]
+        public ActionResult DeleteStage(Guid stageId)
+        {
+
+        }
     }
 }

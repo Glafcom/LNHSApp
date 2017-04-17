@@ -61,6 +61,8 @@
     <Compile Include="Enums\OrderType.cs" />
     <Compile Include="Enums\PlayoffStage.cs" />
     <Compile Include="Enums\ScoreCountingSystem.cs" />
+    <Compile Include="Enums\StageStatus.cs" />
+    <Compile Include="Enums\StageType.cs" />
     <Compile Include="Enums\TableCondition.cs" />
     <Compile Include="Enums\TournamentState.cs" />
     <Compile Include="Enums\UserRoles.cs" />
@@ -69,6 +71,8 @@
     <Compile Include="Filters\BreakingFilter.cs" />
     <Compile Include="Filters\DetailFilter.cs" />
     <Compile Include="Filters\HockeyTableFilter.cs" />
+    <Compile Include="Filters\PlayerFilter.cs" />
+    <Compile Include="Filters\TeamFilter.cs" />
     <Compile Include="Filters\TournamentFilter.cs" />
     <Compile Include="Filters\UserFilter.cs" />
     <Compile Include="Models\BaseModel.cs" />

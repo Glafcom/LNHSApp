@@ -88,7 +88,7 @@
     <Compile Include="Domains\AdminDomain.cs" />
     <Compile Include="Domains\GuestDomain.cs" />
     <Compile Include="Domains\PlayerDomain.cs" />
-    <Compile Include="Domains\TournamentAdminDomain.cs" />
+    <Compile Include="Domains\SupervisorDomain.cs" />
     <Compile Include="Identity\ApplicationEmailService.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationSmsService.cs" />

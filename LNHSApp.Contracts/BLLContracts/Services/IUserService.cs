@@ -16,5 +16,9 @@ namespace LNHSApp.Contracts.BLLContracts.Services
         void BlockUser(Guid userId);
         void UnblockUser(Guid userId);
         bool DeleteUser(Guid userId);
+
+        IEnumerable<User> GetPlayers();
+        IEnumerable<User> GetPlayersByFilter(PlayerFilter filter);
+        User GetPlayer(Guid playerId);
     }
 }

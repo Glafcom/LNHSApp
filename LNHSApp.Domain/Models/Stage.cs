@@ -1,4 +1,5 @@
-﻿using LNHSApp.Domain.Models.Identity;
+﻿using LNHSApp.Domain.Enums;
+using LNHSApp.Domain.Models.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,11 @@ namespace LNHSApp.Domain.Models
         }
 
         public string Name { get; set; }
+        public StageType Type { get; set; }
         public string Description { get; set; }
         public DateTime? BeginDate { get; set; }
-        public DateTime? EndDate { get; set; } 
+        public DateTime? EndDate { get; set; }
+        public int Order { get; set; }
 
         public virtual ICollection<HockeyTable> Tables { get; set; }
         public virtual ICollection<User> Players { get; set; }
