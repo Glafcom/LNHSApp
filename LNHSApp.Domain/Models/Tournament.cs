@@ -31,7 +31,7 @@ namespace LNHSApp.Domain.Models
         public string City { get; set; }
         public string Adress { get; set; }
         public Guid CreatedById { get; set; }
-        public bool? IsTeamTournament { get; set; }
+        public TournamentType Type { get; set; }
 
         public virtual Serie Serie { get; set; }
         public virtual User CreatedBy { get; set; }

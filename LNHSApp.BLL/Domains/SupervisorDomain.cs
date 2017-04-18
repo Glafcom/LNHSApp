@@ -47,9 +47,9 @@ namespace LNHSApp.BLL.Domains
             return _tournamentService.GetItem(tournamentId);
         }
 
-        public void CreateTournament(Tournament tournament)
+        public Tournament CreateTournament(Tournament tournament)
         {
-            _tournamentService.AddItem(tournament);
+            return _tournamentService.AddItem(tournament);
         }
 
         public void EditTournament(Tournament tournament)

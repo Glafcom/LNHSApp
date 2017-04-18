@@ -107,26 +107,26 @@ namespace LNHSApp.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View(new BlankTournamentViewModel());
+            return View(new CreateTournamentViewModel());
         }
 
         [HttpPost]
-        public ActionResult Create(BlankTournamentViewModel model)
+        public ActionResult Create(CreateTournamentViewModel model)
         {
-            _supervisorDomain.CreateTournament(Mapper.Map<Tournament>(model));
-            return RedirectToAction("Index");
+            var tournament = _supervisorDomain.CreateTournament(Mapper.Map<Tournament>(model));
+            return RedirectToAction("Tournament", new { tournamentId = tournament.Id });
         }
 
         [HttpGet]
         public ActionResult Edit(Guid tournamentId)
         {
             var tournament = _supervisorDomain.GetTournament(tournamentId);
-            var model = Mapper.Map<BlankTournamentViewModel>(tournament);
+            var model = Mapper.Map<EditTournamentViewModel>(tournament);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(BlankTournamentViewModel model)
+        public ActionResult Edit(EditTournamentViewModel model)
         {
             _supervisorDomain.EditTournament(Mapper.Map<Tournament>(model));
             return RedirectToAction("Index");

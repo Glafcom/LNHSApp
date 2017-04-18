@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LNHSApp.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,7 +16,7 @@ namespace LNHSApp.Models.TournamentsViewModels
         public string Country { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
-        public bool? IsTeamTournament { get; set; }
+        public TournamentType Type { get; set; }
         public string Description { get; set; }        
     }
 }

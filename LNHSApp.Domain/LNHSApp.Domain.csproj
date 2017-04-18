@@ -65,6 +65,7 @@
     <Compile Include="Enums\StageType.cs" />
     <Compile Include="Enums\TableCondition.cs" />
     <Compile Include="Enums\TournamentState.cs" />
+    <Compile Include="Enums\TournamentType.cs" />
     <Compile Include="Enums\UserRoles.cs" />
     <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Enums\UserState.cs" />

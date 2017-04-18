@@ -8,7 +8,7 @@
 }
 
 @{ 
-    var isTeam = Model.IsTeam.HasValue && (bool)Model.IsTeam;
+    var isTeam = Model.Type == TournamentType.Team;
 }
 
 <h2>Tournament</h2>
@@ -94,7 +94,6 @@
             </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="stages">
-
             <div class="tournament-stages-container container">
                 <table class="table table-bordered">
                     <thead>

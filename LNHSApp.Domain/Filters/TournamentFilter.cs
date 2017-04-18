@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LNHSApp.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,6 @@ namespace LNHSApp.Domain.Filters
         public Guid? Serie { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
-        public bool? IsTeam { get; set; } 
+        public TournamentType? Type { get; set; } 
     }
 }

@@ -152,6 +152,10 @@
     <Compile Include="Areas\Player\PlayerAreaRegistration.cs" />
     <Compile Include="Areas\Supervisor\Controllers\HomeController.cs" />
     <Compile Include="Areas\Supervisor\Controllers\TournamentsController.cs" />
+    <Compile Include="Areas\Supervisor\Models\TournamentsViewModels\BaseTournamentViewModel.cs" />
+    <Compile Include="Areas\Supervisor\Models\TournamentsViewModels\IndexViewModel.cs" />
+    <Compile Include="Areas\Supervisor\Models\TournamentsViewModels\TournamentsViewModel.cs" />
+    <Compile Include="Areas\Supervisor\Models\TournamentsViewModels\TournamentViewModel.cs" />
     <Compile Include="Areas\Supervisor\TournamentAdminAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
@@ -167,9 +171,7 @@
     <Compile Include="Models\TeamsViewModels\TeamsViewModel.cs" />
     <Compile Include="Models\TeamsViewModels\TeamViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\BaseTournamentViewModel.cs" />
-    <Compile Include="Models\TournamentsViewModels\BlankTournamentStageViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\CreateTournamentViewModel.cs" />
-    <Compile Include="Models\TournamentsViewModels\EditTournamentViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\TournamentsIndexViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\TournamentsViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\TournamentViewModel.cs" />
@@ -243,7 +245,6 @@
     <Folder Include="Areas\Player\Views\Home\" />
     <Folder Include="Areas\Player\Views\Shared\" />
     <Folder Include="Areas\Player\Views\Tournaments\" />
-    <Folder Include="Areas\Supervisor\Models\" />
     <Folder Include="Areas\Supervisor\Views\Home\" />
     <Folder Include="Areas\Supervisor\Views\Shared\" />
     <Folder Include="Areas\Supervisor\Views\Tournaments\" />

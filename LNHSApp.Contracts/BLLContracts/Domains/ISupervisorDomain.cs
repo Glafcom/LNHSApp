@@ -15,7 +15,7 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         IEnumerable<Tournament> GetOwnTournaments();
         IEnumerable<Tournament> GetOwnTournamentsByFilter(TournamentFilter filter);
         Tournament GetTournament(Guid tournamentId);
-        void CreateTournament(Tournament tournament);
+        Tournament CreateTournament(Tournament tournament);
         void EditTournament(Tournament tournament);
         void DeleteTournament(Guid tournamentId);
 

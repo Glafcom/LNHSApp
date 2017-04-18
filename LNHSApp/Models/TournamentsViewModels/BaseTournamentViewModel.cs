@@ -20,7 +20,7 @@ namespace LNHSApp.Models.TournamentsViewModels
         public DateTime EndRegistrationDate { get; set; }
         public TournamentState State { get; set; }
         public string Serie { get; set; }
-        public bool? IsTeam { get; set; }
+        public TournamentType Type { get; set; }
         public int SubscribedPlayersCount { get; set; }
         public TournamentCreator Creator { get; set; }
 

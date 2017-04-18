@@ -42,8 +42,8 @@ namespace LNHSApp.BLL.Services
             if (!string.IsNullOrEmpty(filter.City))
                 tournaments = tournaments.Where(t => t.City.Contains(filter.City));
 
-            if (filter.IsTeam.HasValue)
-                tournaments = tournaments.Where(t => t.IsTeamTournament == filter.IsTeam);
+            if (filter.Type.HasValue)
+                tournaments = tournaments.Where(t => t.Type == filter.Type);
 
             return tournaments;
         }

@@ -1,5 +1,5 @@
 ﻿@using LNHSApp.Models.TournamentsViewModels;
-@model BlankTournamentViewModel
+@model CreateTournamentViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -7,6 +7,84 @@
 }
 
 <h2>Creating Tournament</h2>
+
+@using (Html.BeginForm("Create", "Tournaments", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Type)
+                @Html.DropDownListFor(m => m.Type, new SelectList(ViewBag.TournamentTypesList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Type)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.BeginDate)
+                @Html.TextBoxFor(m => m.BeginDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.BeginDate)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StartRegistrationDate)
+                @Html.TextBoxFor(m => m.StartRegistrationDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StartRegistrationDate)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.SerieId)
+                @Html.DropDownListFor(m => m.SerieId, new SelectList(ViewBag.SeriesList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.SerieId)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Country)
+                @Html.TextBoxFor(m => m.Country, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Country)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.City)
+                @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.City)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address)
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Address)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
 
 
 
