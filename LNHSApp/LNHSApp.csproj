@@ -151,7 +151,6 @@
     <Compile Include="Areas\Player\Models\TournamentsViewModels\BaseTournamentViewModel.cs" />
     <Compile Include="Areas\Player\PlayerAreaRegistration.cs" />
     <Compile Include="Areas\Supervisor\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Supervisor\Controllers\TournamentsController.cs" />
     <Compile Include="Areas\Supervisor\Models\TournamentsViewModels\BaseTournamentViewModel.cs" />
     <Compile Include="Areas\Supervisor\Models\TournamentsViewModels\IndexViewModel.cs" />
     <Compile Include="Areas\Supervisor\Models\TournamentsViewModels\TournamentsViewModel.cs" />
@@ -159,6 +158,7 @@
     <Compile Include="Areas\Supervisor\TournamentAdminAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\StagesController.cs" />
     <Compile Include="Controllers\TeamsController.cs" />
     <Compile Include="Controllers\TournamentsController.cs" />
     <Compile Include="Global.asax.cs">

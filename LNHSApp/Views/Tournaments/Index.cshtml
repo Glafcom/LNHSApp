@@ -32,6 +32,7 @@
                                 <th>City</th>
                                 <th>Description</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,6 +48,9 @@
                                     <td>
                                         <a href="@Url.Action("Tournament", "Tournaments", new { tournamentId = tournament.Id })" class="btn btn-default">Details</a>
                                     </td>
+                                    <td>
+                                        <a href="@Url.Action("Delete", "Tournaments", new { tournamentId = tournament.Id })" class="btn btn-default">Delete</a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -60,7 +64,7 @@
                 {
                     <p>There are no tournaments</p>
                 }
-
+                
             </div>
             <div role="tabpanel" class="tab-pane" id="currTournaments">
                 @if (Model.CurrentTournaments != null && Model.CurrentTournaments.Count > 0)
@@ -192,6 +196,8 @@
                 
             </div>
         </div>
+
+        <a href="@Url.Action("Create", "Tournaments")" class="btn btn-default">New Tournament</a>
 
     </div>
 </div>

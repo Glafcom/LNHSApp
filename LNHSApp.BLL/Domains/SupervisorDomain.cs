@@ -14,11 +14,22 @@ namespace LNHSApp.BLL.Domains
     public class SupervisorDomain : User, ISupervisorDomain
     {
         protected readonly ITournamentService _tournamentService;
+        protected readonly ISerieService _serieService;
 
-        public SupervisorDomain(ITournamentService tournamentService)
+        public SupervisorDomain(ITournamentService tournamentService, ISerieService serieService)
         {
             _tournamentService = tournamentService;
+            _serieService = serieService;
         }
+
+        #region Series methods
+
+        public IEnumerable<Serie> GetSeries()
+        {
+            return _serieService.GetItems();
+        }
+
+        #endregion
 
         #region Tournaments methods
 

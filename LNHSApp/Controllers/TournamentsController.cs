@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using LNHSApp.Contracts.BLLContracts.Domains;
+using LNHSApp.Domain.Enums;
 using LNHSApp.Domain.Filters;
 using LNHSApp.Domain.Models;
+using LNHSApp.Extensions.Helpers;
 using LNHSApp.Models.StagesViewModels;
 using LNHSApp.Models.TournamentsViewModels;
 using System;
@@ -107,6 +109,8 @@ namespace LNHSApp.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.TournamentTypesList = EnumHelper.GetEnumDictionary<TournamentType>().Select(tt => new SelectListItem { Value = tt.Key.ToString(), Text = tt.Value });
+            ViewBag.SeriesList = _supervisorDomain.GetSeries().Select(s => new SelectListItem { Value = s.Id.ToString(), Text = s.Name });
             return View(new CreateTournamentViewModel());
         }
 
@@ -137,67 +141,6 @@ namespace LNHSApp.Controllers
         {
             _supervisorDomain.DeleteTournament(tournamentId);
             return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public ActionResult Stage(Guid stageId)
-        {
-
-        }
-
-
-        [HttpGet]
-        public ActionResult RRPlayerResults(Guid stageId)
-        {
-
-        }
-
-        [HttpPost]
-        public ActionResult RRPlayerResults(RRPlayerResultsViewModel model)
-        {
-
-        }
-
-        [HttpGet]
-        public ActionResult PlayoffPlayerResults(Guid stageId)
-        {
-
-        }
-
-        [HttpPost]
-        public ActionResult PlayoffPlayerResults(PlayoffPlayerResultsViewModel model)
-        {
-
-        }
-
-        [HttpGet]
-        public ActionResult CreateStage()
-        {
-
-        }
-
-        [HttpPost]
-        public ActionResult CreateStage(BlankTournamentStageViewModel model)
-        {
-
-        }
-
-        [HttpGet]
-        public ActionResult EditStage(Guid stageId)
-        {
-
-        }
-
-        [HttpPost]
-        public ActionResult EditStage(BlankTournamentStageViewModel)
-        {
-
-        }
-
-        [HttpPost]
-        public ActionResult DeleteStage(Guid stageId)
-        {
-
         }
     }
 }

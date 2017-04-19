@@ -10,6 +10,8 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
 {
     public interface ISupervisorDomain
     {
+        IEnumerable<Serie> GetSeries();
+
         IEnumerable<Tournament> GetTournaments();
         IEnumerable<Tournament> GetTournamentsByFilter(TournamentFilter filter);
         IEnumerable<Tournament> GetOwnTournaments();
@@ -19,12 +21,12 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         void EditTournament(Tournament tournament);
         void DeleteTournament(Guid tournamentId);
 
-        void CreateRoundRobinStage(RoundRobinStage stage);
+        /*void CreateRoundRobinStage(RoundRobinStage stage);
         void EditRoundRobinStage(RoundRobinStage stage);
         void DeleteRoundRobinStage(Guid stageId);
 
         void CreatePlayoffStage(PlayoffStage stage);
         void EditPlayoffStage(PlayoffStage stage);
-        void DeletePlayoffStage(Guid stageId);
+        void DeletePlayoffStage(Guid stageId);*/
     }
 }
