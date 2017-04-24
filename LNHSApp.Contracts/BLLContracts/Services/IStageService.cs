@@ -9,5 +9,9 @@ namespace LNHSApp.Contracts.BLLContracts.Services
 {
     public interface IStageService : IBaseService<Stage>
     {
+        PlayoffStage GetPlayoffStageByGeneralStage(Guid stageId);
+        void CreatePlayoffStage(PlayoffStage playoffStage);
+        RoundRobinStage GetRRStageByGeneralStage(Guid stageId);
+        void CreateRoundRobinStage(RoundRobinStage roundRobinStage);
     }
 }

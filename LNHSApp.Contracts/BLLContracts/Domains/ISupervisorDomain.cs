@@ -21,6 +21,16 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         void EditTournament(Tournament tournament);
         void DeleteTournament(Guid tournamentId);
 
+
+        Stage GetStage(Guid stageId);
+        Stage CreateStage(Stage stage);
+        PlayoffStage GetPlayoffStage(Guid poStageId);
+        void CreatePlayoffStage(PlayoffStage playoffStage);
+        RoundRobinStage GetRoundRobinStage(Guid rrStageId);
+        void CreateRoundRobinStage(RoundRobinStage roundRobinStage);
+        
+        
+
         /*void CreateRoundRobinStage(RoundRobinStage stage);
         void EditRoundRobinStage(RoundRobinStage stage);
         void DeleteRoundRobinStage(Guid stageId);

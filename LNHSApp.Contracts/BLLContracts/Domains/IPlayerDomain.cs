@@ -20,5 +20,9 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         IEnumerable<Tournament> GetSubscribedUpcomingTournamentsByFilter(TournamentFilter filter);        
         void SubscribeToTournament(Guid tournamentId);
         void UnsubscribeFromTournament(Guid tournamentId);
+
+        Stage GetStage(Guid stageId);
+        PlayoffStage GetPlayoffStage(Guid poStageId);
+        RoundRobinStage GetRoundRobinStage(Guid rrStageId);
     }
 }

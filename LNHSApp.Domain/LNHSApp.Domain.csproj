@@ -59,7 +59,7 @@
   <ItemGroup>
     <Compile Include="Enums\BreakingState.cs" />
     <Compile Include="Enums\OrderType.cs" />
-    <Compile Include="Enums\PlayoffStage.cs" />
+    <Compile Include="Enums\PlayoffRound.cs" />
     <Compile Include="Enums\ScoreCountingSystem.cs" />
     <Compile Include="Enums\StageStatus.cs" />
     <Compile Include="Enums\StageType.cs" />

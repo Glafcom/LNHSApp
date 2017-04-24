@@ -14,10 +14,12 @@ namespace LNHSApp.BLL.Domains
     public class PlayerDomain : User, IPlayerDomain
     {
         protected readonly ITournamentService _tournamentService;
+        protected readonly IStageService _stageService;
 
-        public PlayerDomain(ITournamentService tournamentService)
+        public PlayerDomain(ITournamentService tournamentService, IStageService stageService)
         {
             _tournamentService = tournamentService;
+            _stageService = stageService;
         }
 
         #region Tournament methods
@@ -70,6 +72,25 @@ namespace LNHSApp.BLL.Domains
         public void UnsubscribeFromTournament(Guid tournamentId)
         {
             _tournamentService.UnsubscribeFromTournament(Id, tournamentId);
+        }
+
+        #endregion
+
+        #region Stages methods
+
+        public Stage GetStage(Guid stageId)
+        {
+            return _stageService.GetItem(stageId);
+        }
+
+        public PlayoffStage GetPlayoffStage(Guid stageId)
+        {
+            return _stageService.GetPlayoffStageByGeneralStage(stageId);
+        }
+
+        public RoundRobinStage GetRoundRobinStage(Guid stageId)
+        {
+            return _stageService.GetRRStageByGeneralStage(stageId);
         }
 
         #endregion

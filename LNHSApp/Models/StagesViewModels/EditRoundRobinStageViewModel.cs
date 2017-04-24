@@ -5,7 +5,7 @@ using System.Web;
 
 namespace LNHSApp.Models.StagesViewModels
 {
-    public class RRPlayerResultsViewModel
+    public class EditRoundRobinStageViewModel
     {
     }
 }

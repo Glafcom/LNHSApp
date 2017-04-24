@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LNHSApp.Domain.Models
 {
-    public class Stage
+    public class Stage : BaseModel
     {
         public Stage()
         {
@@ -19,6 +19,7 @@ namespace LNHSApp.Domain.Models
 
         public string Name { get; set; }
         public StageType Type { get; set; }
+        public StageStatus Status { get; set; }
         public string Description { get; set; }
         public DateTime? BeginDate { get; set; }
         public DateTime? EndDate { get; set; }

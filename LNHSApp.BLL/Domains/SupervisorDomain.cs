@@ -15,11 +15,15 @@ namespace LNHSApp.BLL.Domains
     {
         protected readonly ITournamentService _tournamentService;
         protected readonly ISerieService _serieService;
+        protected readonly IStageService _stageService;
 
-        public SupervisorDomain(ITournamentService tournamentService, ISerieService serieService)
+        public SupervisorDomain(ITournamentService tournamentService, 
+            ISerieService serieService,
+            IStageService stageService)
         {
             _tournamentService = tournamentService;
             _serieService = serieService;
+            _stageService = stageService;
         }
 
         #region Series methods
@@ -71,6 +75,40 @@ namespace LNHSApp.BLL.Domains
         public void DeleteTournament(Guid tournamentId)
         {
             _tournamentService.DeleteItem(tournamentId);
+        }
+
+        #endregion
+
+        #region Stage methods
+
+        public Stage GetStage(Guid stageId)
+        {
+            return _stageService.GetItem(stageId);
+        }
+
+        public Stage CreateStage(Stage stage)
+        {
+            return _stageService.AddItem(stage);
+        }
+
+        public PlayoffStage GetPlayoffStage(Guid stageId)
+        {
+            return _stageService.GetPlayoffStageByGeneralStage(stageId);
+        }
+
+        public void CreatePlayoffStage(PlayoffStage playoffStage)
+        {
+            _stageService.CreatePlayoffStage(playoffStage);
+        }
+
+        public RoundRobinStage GetRoundRobinStage(Guid stageId)
+        {
+            return _stageService.GetRRStageByGeneralStage(stageId);
+        }
+
+        public void CreateRoundRobinStage(RoundRobinStage roundRobinStage)
+        {
+            _stageService.CreateRoundRobinStage(roundRobinStage);
         }
 
         #endregion

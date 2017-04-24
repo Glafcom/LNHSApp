@@ -17,6 +17,7 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#main" aria-controls="main" role="tab" data-toggle="tab">Main info</a></li>
+        <li role="presentation"><a href="#admins" aria-controls="admins" role="tab" data-toggle="tab">Admins</a></li>
         <li role="presentation"><a href="#stages" aria-controls="stages" role="tab" data-toggle="tab">Stages</a></li>
         <li role="presentation"><a href="#competitors" aria-controls="competitors" role="tab" data-toggle="tab">@(isTeam ? "Teams" : "Players")</a></li>
         @if (Model.State == TournamentState.Ended)
@@ -93,34 +94,56 @@
                 </table>
             </div>
         </div>
-        <div role="tabpanel" class="tab-pane" id="stages">
-            <div class="tournament-stages-container container">
+
+        <div role="tabpanel" class="tab-pane" id="admins">
+            <div class="tournament-admins-container container">
                 <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Order</th>
-                            <th>Type</th>
-                            <th>Name</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var stage in Model.Stages.OrderBy(s => s.Order))
-                        {
-                            <tr>
-                                <td>@stage.Order</td>
-                                <td>@stage.Type.ToString()</td>
-                                <td>@stage.Name</td>
-                                <td>@stage.Status.ToString()</td>
-                                <td>
-                                    <a href="@Url.Action("Stage", "Stages", new { stageId = stage.Id })" class="btn btn-default">Details</a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
+                    
                 </table>
 
+
+            </div>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="stages">
+            <div class="tournament-stages-container container">
+                @if (Model.Stages != null && Model.Stages.Count > 0)
+                {
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var stage in Model.Stages.OrderBy(s => s.Order))
+                            {
+                                <tr>
+                                    <td>@stage.Order</td>
+                                    <td>@stage.Type.ToString()</td>
+                                    <td>@stage.Name</td>
+                                    <td>@stage.Status.ToString()</td>
+                                    <td>
+                                        <a href="@Url.Action("Stage", "Stages", new { stageId = stage.Id })" class="btn btn-default">Details</a>
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Delete", "Stages", new { stageId = stage.Id })" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>There are no stages</p>
+                }
+                <a href="@Url.Action("Create", "Stages")" class="btn btn-default">Add Stage</a>
                 
             </div>
 

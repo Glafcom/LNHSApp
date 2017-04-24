@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LNHSApp.Domain.Enums
 {
-    public enum PlayoffStage
+    public enum PlayoffRound
     {
         Final,
         SemiFinal,

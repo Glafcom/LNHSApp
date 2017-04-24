@@ -166,8 +166,12 @@
     </Compile>
     <Compile Include="Models\PlayersViewModels\PlayersViewModel.cs" />
     <Compile Include="Models\PlayersViewModels\PlayerViewModel.cs" />
-    <Compile Include="Models\StagesViewModels\PlayoffPlayerResultsViewModel.cs" />
-    <Compile Include="Models\StagesViewModels\RRPlayerResultsViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\CreatePlayoffStageViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\CreateRoundRobinStageViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\CreateStageViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\EditPlayoffStageViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\EditRoundRobinStageViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\EditStageViewModel.cs" />
     <Compile Include="Models\TeamsViewModels\TeamsViewModel.cs" />
     <Compile Include="Models\TeamsViewModels\TeamViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\BaseTournamentViewModel.cs" />

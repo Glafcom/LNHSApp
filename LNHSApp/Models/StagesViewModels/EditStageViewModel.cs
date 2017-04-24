@@ -5,8 +5,7 @@ using System.Web;
 
 namespace LNHSApp.Models.StagesViewModels
 {
-    public class PlayoffPlayerResultsViewModel
+    public class EditStageViewModel
     {
-
     }
 }
