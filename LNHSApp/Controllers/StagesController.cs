@@ -127,7 +127,7 @@ namespace LNHSApp.Controllers
 
             if (model.Type == StageType.Playoff)
             {
-                return RedirectToAction("EditPlayoffStage");
+                return RedirectToAction("CreatePlayoffStage");
             }
             else
             {
