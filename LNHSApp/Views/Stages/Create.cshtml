@@ -1,0 +1,70 @@
+﻿@using LNHSApp.Models.StagesViewModels;
+@model CreateStageViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Creating Stage</h2>
+
+@using (Html.BeginForm("Create", "Stages", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Type)
+                @Html.DropDownListFor(m => m.Type, new SelectList(ViewBag.TypesList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Type)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Order)
+                @Html.TextBoxFor(m => m.Order, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Order)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.BeginDate)
+                @Html.TextBoxFor(m => m.BeginDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.BeginDate)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.EndDate)
+                @Html.TextBoxFor(m => m.EndDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EndDate)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Description)
+                @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+}
+

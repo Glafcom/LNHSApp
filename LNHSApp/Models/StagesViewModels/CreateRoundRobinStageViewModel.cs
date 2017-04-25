@@ -7,7 +7,6 @@ namespace LNHSApp.Models.StagesViewModels
 {
     public class CreateRoundRobinStageViewModel
     {
-        public Guid Id { get; set; }
         public int RoundsCount { get; set; }
         public int WinPoints { get; set; }
         public int TiePoints { get; set; }

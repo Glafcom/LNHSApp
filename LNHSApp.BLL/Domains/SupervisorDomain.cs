@@ -91,7 +91,7 @@ namespace LNHSApp.BLL.Domains
             return _stageService.AddItem(stage);
         }
 
-        public PlayoffStage GetPlayoffStage(Guid stageId)
+        public PlayoffStage GetPlayoffStageByGeneralStage(Guid stageId)
         {
             return _stageService.GetPlayoffStageByGeneralStage(stageId);
         }
@@ -101,7 +101,7 @@ namespace LNHSApp.BLL.Domains
             _stageService.CreatePlayoffStage(playoffStage);
         }
 
-        public RoundRobinStage GetRoundRobinStage(Guid stageId)
+        public RoundRobinStage GetRoundRobinStageByGeneralStage(Guid stageId)
         {
             return _stageService.GetRRStageByGeneralStage(stageId);
         }

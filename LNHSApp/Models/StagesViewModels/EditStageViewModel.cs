@@ -16,5 +16,28 @@ namespace LNHSApp.Models.StagesViewModels
         public StageType Type { get; set; }
         public DateTime? BeginDate { get; set; }
         public DateTime? EndDate { get; set; }
+
+        #region Playoff stage properties
+
+        public Guid? PlayoffStageId { get; set; }
+        public int? CompetitorsCount { get; set; }
+        public string PlayoffFormula { get; set; }
+        public bool? HasThirdPlaceGame { get; set; }
+
+        #endregion
+
+        #region Round robin stage properties
+
+        public Guid? RoundRobinStageId { get; set; }
+        public int? RoundsCount { get; set; }
+        public int? WinPoints { get; set; }
+        public int? TiePoints { get; set; }
+        public int? LosePoints { get; set; }
+        public bool? HasOvertimes { get; set; }
+        public int? OvertimeWinPoints { get; set; }
+        public int? OvertimeLosePoints { get; set; }
+
+        #endregion
+
     }
 }

@@ -2,6 +2,7 @@
 using LNHSApp.Contracts.BLLContracts.Domains;
 using LNHSApp.Domain.Enums;
 using LNHSApp.Domain.Models;
+using LNHSApp.Extensions.Helpers;
 using LNHSApp.Models.StagesViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,33 +27,35 @@ namespace LNHSApp.Controllers
         {
             var stage = _playerDomain.GetStage(stageId);
             if (stage.Type == StageType.Playoff)
-            {
-                var playoffStage = _playerDomain.GetPlayoffStage(stageId);
-                return View
-
+            {   
+                return RedirectToAction("PlayoffStage", new { stageId = stageId });
             }
             else
             {
-
+                return RedirectToAction("RoundRobinStage", new { stageId = stageId });
             }
             
         }
 
         public ActionResult PlayoffStage(Guid stageId)
         {
-
+            var playoffStage = _playerDomain.GetPlayoffStage(stageId);
+            var model = Mapper.Map<PlayoffStageViewModel>(playoffStage);
+            return View(model);
         }
 
         public ActionResult RoundRobinStage(Guid stageId)
         {
-
+            var roundRobinStage = _playerDomain.GetRoundRobinStage(stageId);
+            var model = Mapper.Map<RoundRobinStageViewModel>(roundRobinStage);
+            return View(model);
         }
-
-        
 
         [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.TypesList = EnumHelper.GetEnumDictionary<StageType>()
+                .Select(st => new SelectListItem { Value = st.Key.ToString(), Text = st.Value });
             return View(new CreateStageViewModel());
         }
 
@@ -99,11 +102,16 @@ namespace LNHSApp.Controllers
         [HttpGet]
         public ActionResult CreateRoundRobinStage()
         {
+            ViewBag.RoundsList = EnumHelper.GetIntArray(1, 5)
+                .Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString() });
+            ViewBag.PointsList = EnumHelper.GetIntArray(1, 7)
+                .Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString()});
+
             return View(new CreateRoundRobinStageViewModel());
         }
 
         [HttpPost]
-        public ActionResult CreatePlayoffStage(CreateRoundRobinStageViewModel model)
+        public ActionResult CreateRoundRobinStage(CreateRoundRobinStageViewModel model)
         {
             if (TempData["StageModel"] != null)
             {
@@ -120,47 +128,41 @@ namespace LNHSApp.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult Edit(EditStageViewModel model)
+        [HttpGet]
+        public ActionResult Edit(Guid stageId)
         {
-            TempData["StageModel"] = model;
+            EditStageViewModel model;
+            var stage = _supervisorDomain.GetStage(stageId);
 
-            if (model.Type == StageType.Playoff)
+            if (stage.Type == StageType.Playoff)
             {
-                return RedirectToAction("CreatePlayoffStage");
+                var playoffStage = _supervisorDomain.GetPlayoffStageByGeneralStage(stageId);
+                model = Mapper.Map<EditStageViewModel>(playoffStage);
             }
             else
             {
-                return RedirectToAction("CreateRoundRobinStage");
+                var roundRobinStage = _supervisorDomain.GetRoundRobinStageByGeneralStage(stageId);
+                model = Mapper.Map<EditStageViewModel>(roundRobinStage);
             }
-        }
+            
+            ViewBag.TypesList = EnumHelper.GetEnumDictionary<StageType>()
+                .Select(st => new SelectListItem { Value = st.Key.ToString(), Text = st.Value });
+            ViewBag.RoundsList = EnumHelper.GetIntArray(1, 5)
+                .Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString() });
+            ViewBag.PointsList = EnumHelper.GetIntArray(1, 7)
+                .Select(i => new SelectListItem { Value = i.ToString(), Text = i.ToString() });
 
-        [HttpGet]
-        public ActionResult EditPlayoffStage(Guid stageId)
-        {
-            var playoffStage = _supervisorDomain.GetPlayoffStage(stageId);
-
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult EditPlayoffStage(EditPlayoffStageViewModel model)
+        public ActionResult Edit(EditStageViewModel model)
         {
-            
+            var stage = Mapper.Map<>
 
+            return RedirectToAction("Detail", new { stageId = stage.Id });
         }
 
-        [HttpGet]
-        public ActionResult EditRoundRobinStage(Guid stageId)
-        {
-            var roundRobinStage = _supervisorDomain.GetRoundRobinStage(stageId);
-
-        }
-
-        [HttpPost]
-        public ActionResult EditRoundRobinStage(EditRoundRobinStageViewModel model)
-        {
-            
-
-        }
+        
     }
 }

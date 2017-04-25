@@ -1,0 +1,130 @@
+﻿@using LNHSApp.Models.StagesViewModels;
+@model EditRoundRobinStageViewModel
+
+@{
+    ViewBag.Title = "EditRoundRobinStage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editing Round Robin Stage</h2>
+
+@using (Html.BeginForm("EditRoundRobinStage", "Stages", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.StageId)
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageName)
+                @Html.TextBoxFor(m => m.StageName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageName)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageType)
+                @Html.DropDownListFor(m => m.StageType, new SelectList(ViewBag.TypesList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageType)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageOrder)
+                @Html.TextBoxFor(m => m.StageOrder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageOrder)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageBeginDate)
+                @Html.TextBoxFor(m => m.StageBeginDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageBeginDate)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageEndDate)
+                @Html.TextBoxFor(m => m.StageEndDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageEndDate)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageDescription)
+                @Html.TextAreaFor(m => m.StageDescription, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageDescription)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.RoundsCount)
+                @Html.DropDownListFor(m => m.RoundsCount, new SelectList(ViewBag.RoundsList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.RoundsCount)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.TiePoints)
+                @Html.DropDownListFor(m => m.TiePoints, new SelectList(ViewBag.PointsList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TiePoints)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.LosePoints)
+                @Html.DropDownListFor(m => m.LosePoints, new SelectList(ViewBag.PointsList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LosePoints)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.HasOvertimes)
+                @Html.CheckBoxFor(m => m.HasOvertimes, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.HasOvertimes)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.OvertimeWinPoints)
+                @Html.DropDownListFor(m => m.OvertimeWinPoints, new SelectList(ViewBag.PointsList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.OvertimeWinPoints)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.OvertimeLosePoints)
+                @Html.DropDownListFor(m => m.OvertimeLosePoints, new SelectList(ViewBag.PointsList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.OvertimeLosePoints)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

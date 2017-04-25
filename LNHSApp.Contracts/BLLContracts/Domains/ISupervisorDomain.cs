@@ -24,9 +24,9 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
 
         Stage GetStage(Guid stageId);
         Stage CreateStage(Stage stage);
-        PlayoffStage GetPlayoffStage(Guid poStageId);
+        PlayoffStage GetPlayoffStageByGeneralStage(Guid stageId);
         void CreatePlayoffStage(PlayoffStage playoffStage);
-        RoundRobinStage GetRoundRobinStage(Guid rrStageId);
+        RoundRobinStage GetRoundRobinStageByGeneralStage(Guid stageId);
         void CreateRoundRobinStage(RoundRobinStage roundRobinStage);
         
         

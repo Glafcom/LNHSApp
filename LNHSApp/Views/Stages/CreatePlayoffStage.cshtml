@@ -1,0 +1,44 @@
+﻿@using LNHSApp.Models.StagesViewModels;
+@model CreatePlayoffStageViewModel
+
+@{
+    ViewBag.Title = "CreatePlayoffStage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Creating Playoff Stage</h2>
+
+@using (Html.BeginForm("CreatePlayoffStage", "Stages", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.CompetitorsCount)
+                @Html.TextBoxFor(m => m.CompetitorsCount, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CompetitorsCount)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.PlayoffFormula)
+                @Html.TextBoxFor(m => m.PlayoffFormula, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PlayoffFormula)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.HasThirdPlaceGame)
+                @Html.CheckBoxFor(m => (bool)m.HasThirdPlaceGame, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.HasThirdPlaceGame)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+}
+

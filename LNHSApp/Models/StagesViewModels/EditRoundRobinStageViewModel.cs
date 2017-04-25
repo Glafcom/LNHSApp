@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LNHSApp.Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +16,13 @@ namespace LNHSApp.Models.StagesViewModels
         public bool HasOvertimes { get; set; }
         public int? OvertimeWinPoints { get; set; }
         public int? OvertimeLosePoints { get; set; }
-        public EditStageViewModel StageInfo { get; set; }
+
+        public Guid StageId { get; set; }
+        public string StageName { get; set; }
+        public string StageDescription { get; set; }
+        public int StageOrder { get; set; }
+        public StageType StageType { get; set; }
+        public DateTime? StageBeginDate { get; set; }
+        public DateTime? StageEndDate { get; set; }
     }
 }

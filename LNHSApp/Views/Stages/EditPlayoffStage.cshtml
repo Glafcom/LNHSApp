@@ -1,0 +1,100 @@
+﻿@using LNHSApp.Models.StagesViewModels;
+@model EditPlayoffStageViewModel
+
+@{
+    ViewBag.Title = "EditPlayoffStage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editing Playoff Stage</h2>
+
+@using (Html.BeginForm("EditPlayoffStage", "Stages", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.StageId)
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageName)
+                @Html.TextBoxFor(m => m.StageName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageName)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageType)
+                @Html.DropDownListFor(m => m.StageType, new SelectList(ViewBag.TypesList, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageType)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageOrder)
+                @Html.TextBoxFor(m => m.StageOrder, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageOrder)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageBeginDate)
+                @Html.TextBoxFor(m => m.StageBeginDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageBeginDate)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageEndDate)
+                @Html.TextBoxFor(m => m.StageEndDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageEndDate)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.StageDescription)
+                @Html.TextAreaFor(m => m.StageDescription, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.StageDescription)
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.CompetitorsCount)
+                @Html.TextBoxFor(m => m.CompetitorsCount, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CompetitorsCount)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.PlayoffFormula)
+                @Html.TextBoxFor(m => m.PlayoffFormula, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PlayoffFormula)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="form-group">
+                @Html.LabelFor(m => m.HasThirdPlaceGame)
+                @Html.CheckBoxFor(m => (bool)m.HasThirdPlaceGame, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.HasThirdPlaceGame)
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}

@@ -169,7 +169,6 @@
     <Compile Include="Models\StagesViewModels\CreatePlayoffStageViewModel.cs" />
     <Compile Include="Models\StagesViewModels\CreateRoundRobinStageViewModel.cs" />
     <Compile Include="Models\StagesViewModels\CreateStageViewModel.cs" />
-    <Compile Include="Models\StagesViewModels\EditPlayoffStageViewModel.cs" />
     <Compile Include="Models\StagesViewModels\EditRoundRobinStageViewModel.cs" />
     <Compile Include="Models\StagesViewModels\EditStageViewModel.cs" />
     <Compile Include="Models\TeamsViewModels\TeamsViewModel.cs" />
@@ -241,6 +240,11 @@
     <Content Include="Views\Players\Index.cshtml" />
     <Content Include="Views\Players\Player.cshtml" />
     <Content Include="Views\Tournaments\Create.cshtml" />
+    <Content Include="Views\Stages\Create.cshtml" />
+    <Content Include="Views\Stages\CreatePlayoffStage.cshtml" />
+    <Content Include="Views\Stages\CreateRoundRobinStage.cshtml" />
+    <Content Include="Views\Stages\EditPlayoffStage.cshtml" />
+    <Content Include="Views\Stages\EditRoundRobinStage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -252,7 +256,6 @@
     <Folder Include="Areas\Supervisor\Views\Home\" />
     <Folder Include="Areas\Supervisor\Views\Shared\" />
     <Folder Include="Areas\Supervisor\Views\Tournaments\" />
-    <Folder Include="Views\Stages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
