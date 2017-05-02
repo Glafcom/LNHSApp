@@ -38,9 +38,29 @@ namespace LNHSApp.BLL.Services
             return _roundRobinStageService.GetItems().Where(rrs => rrs.StageId == stageId).FirstOrDefault();
         }
 
-        void CreateRoundRobinStage(RoundRobinStage roundRobinStage)
+        public void CreateRoundRobinStage(RoundRobinStage roundRobinStage)
         {
             _roundRobinStageService.AddItem(roundRobinStage);
+        }
+
+        public void DeleteStagesOfGeneralStage(Guid stageId)
+        {
+            DeletePlayoffStageOfGeneralStage(stageId);
+            DeleteRoundRodinStageOfGeneralStage(stageId);
+        }
+
+        public void DeletePlayoffStageOfGeneralStage(Guid stageId)
+        {
+            var playoffStage = GetPlayoffStageByGeneralStage(stageId);
+            if (playoffStage != null)
+                _playoffStageService.DeleteItem(playoffStage.Id);
+        }
+
+        public void DeleteRoundRodinStageOfGeneralStage(Guid stageId)
+        {
+            var roundRobinStage = GetRRStageByGeneralStage(stageId);
+            if (roundRobinStage != null)
+                _roundRobinStageService.DeleteItem(roundRobinStage.Id);
         }
     }
 }

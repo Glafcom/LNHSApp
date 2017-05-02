@@ -16,6 +16,7 @@ namespace LNHSApp.DAL.AppDbContext
             : base("LNHSAppDbConnection")
         { }
 
+        public DbSet<Article> Articles { get; set; }
         public DbSet<Breaking> Breakings { get; set; }
         public DbSet<Detail> Details { get; set; }
         public DbSet<Game> Games { get; set; }

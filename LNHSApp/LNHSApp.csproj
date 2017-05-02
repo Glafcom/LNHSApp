@@ -171,6 +171,8 @@
     <Compile Include="Models\StagesViewModels\CreateStageViewModel.cs" />
     <Compile Include="Models\StagesViewModels\EditRoundRobinStageViewModel.cs" />
     <Compile Include="Models\StagesViewModels\EditStageViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\PlayoffStageViewModel.cs" />
+    <Compile Include="Models\StagesViewModels\RoundRobinStageViewModel.cs" />
     <Compile Include="Models\TeamsViewModels\TeamsViewModel.cs" />
     <Compile Include="Models\TeamsViewModels\TeamViewModel.cs" />
     <Compile Include="Models\TournamentsViewModels\BaseTournamentViewModel.cs" />
@@ -245,6 +247,8 @@
     <Content Include="Views\Stages\CreateRoundRobinStage.cshtml" />
     <Content Include="Views\Stages\EditPlayoffStage.cshtml" />
     <Content Include="Views\Stages\EditRoundRobinStage.cshtml" />
+    <Content Include="Views\Stages\PlayoffStage.cshtml" />
+    <Content Include="Views\Stages\RoundRobinStage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

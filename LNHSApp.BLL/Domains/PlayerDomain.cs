@@ -83,12 +83,12 @@ namespace LNHSApp.BLL.Domains
             return _stageService.GetItem(stageId);
         }
 
-        public PlayoffStage GetPlayoffStage(Guid stageId)
+        public PlayoffStage GetPlayoffStageByGeneralStage(Guid stageId)
         {
             return _stageService.GetPlayoffStageByGeneralStage(stageId);
         }
 
-        public RoundRobinStage GetRoundRobinStage(Guid stageId)
+        public RoundRobinStage GetRoundRobinStageByGeneralStage(Guid stageId)
         {
             return _stageService.GetRRStageByGeneralStage(stageId);
         }

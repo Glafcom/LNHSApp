@@ -22,7 +22,7 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         void UnsubscribeFromTournament(Guid tournamentId);
 
         Stage GetStage(Guid stageId);
-        PlayoffStage GetPlayoffStage(Guid poStageId);
-        RoundRobinStage GetRoundRobinStage(Guid rrStageId);
+        PlayoffStage GetPlayoffStageByGeneralStage(Guid poStageId);
+        RoundRobinStage GetRoundRobinStageByGeneralStage(Guid rrStageId);
     }
 }

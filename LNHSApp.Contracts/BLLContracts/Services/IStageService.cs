@@ -13,5 +13,9 @@ namespace LNHSApp.Contracts.BLLContracts.Services
         void CreatePlayoffStage(PlayoffStage playoffStage);
         RoundRobinStage GetRRStageByGeneralStage(Guid stageId);
         void CreateRoundRobinStage(RoundRobinStage roundRobinStage);
+
+        void DeleteStagesOfGeneralStage(Guid stageId);
+        void DeletePlayoffStageOfGeneralStage(Guid stageId);
+        void DeleteRoundRodinStageOfGeneralStage(Guid stageId);
     }
 }

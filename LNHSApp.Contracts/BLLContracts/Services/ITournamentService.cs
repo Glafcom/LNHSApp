@@ -27,6 +27,7 @@ namespace LNHSApp.Contracts.BLLContracts.Services
         IEnumerable<Tournament> GetSubscribedUpcomingTournamentsByFilter(Guid playerId, TournamentFilter filter);
         IEnumerable<Tournament> GetOwnTournaments(Guid userId);
         IEnumerable<Tournament> GetOwnTournamentsByFilter(Guid userId, TournamentFilter filter);
+        Tournament GetTournamentByStage(Guid stageId);
         void SubscribeToTournament(Guid userId, Guid tournamentId);
         void UnsubscribeFromTournament(Guid userId, Guid tournamentId);
 

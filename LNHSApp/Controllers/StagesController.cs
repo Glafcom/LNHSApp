@@ -39,14 +39,14 @@ namespace LNHSApp.Controllers
 
         public ActionResult PlayoffStage(Guid stageId)
         {
-            var playoffStage = _playerDomain.GetPlayoffStage(stageId);
+            var playoffStage = _playerDomain.GetPlayoffStageByGeneralStage(stageId);
             var model = Mapper.Map<PlayoffStageViewModel>(playoffStage);
             return View(model);
         }
 
         public ActionResult RoundRobinStage(Guid stageId)
         {
-            var roundRobinStage = _playerDomain.GetRoundRobinStage(stageId);
+            var roundRobinStage = _playerDomain.GetRoundRobinStageByGeneralStage(stageId);
             var model = Mapper.Map<RoundRobinStageViewModel>(roundRobinStage);
             return View(model);
         }
@@ -158,11 +158,34 @@ namespace LNHSApp.Controllers
         [HttpPost]
         public ActionResult Edit(EditStageViewModel model)
         {
-            var stage = Mapper.Map<>
+            var stage = Mapper.Map<Stage>(model);
+            _supervisorDomain.DeleteStagesOfGeneralStage(stage.Id);
+            _supervisorDomain.EditStage(stage);
+
+            if (stage.Type == StageType.Playoff)
+            {
+                var playoffStage = Mapper.Map<PlayoffStage>(model);
+                _supervisorDomain.CreatePlayoffStage(playoffStage);
+            }
+            else
+            {
+                var roundRobinStage = Mapper.Map<RoundRobinStage>(model);
+                _supervisorDomain.CreateRoundRobinStage(roundRobinStage);
+            }
 
             return RedirectToAction("Detail", new { stageId = stage.Id });
         }
 
-        
+        [HttpGet]
+        public ActionResult Delete(Guid stageId)
+        {
+            var tournament = _supervisorDomain.GetTournamentByStage(stageId);
+            _supervisorDomain.DeleteStage(stageId);
+
+            if (tournament == null)
+                return RedirectToAction("Index", "Tournaments");
+
+            return RedirectToAction("Tournament", "Tournaments", new { tournamentId = tournament.Id });
+        }
     }
 }

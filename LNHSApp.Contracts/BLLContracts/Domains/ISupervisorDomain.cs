@@ -17,6 +17,7 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
         IEnumerable<Tournament> GetOwnTournaments();
         IEnumerable<Tournament> GetOwnTournamentsByFilter(TournamentFilter filter);
         Tournament GetTournament(Guid tournamentId);
+        Tournament GetTournamentByStage(Guid stageId);
         Tournament CreateTournament(Tournament tournament);
         void EditTournament(Tournament tournament);
         void DeleteTournament(Guid tournamentId);
@@ -24,12 +25,14 @@ namespace LNHSApp.Contracts.BLLContracts.Domains
 
         Stage GetStage(Guid stageId);
         Stage CreateStage(Stage stage);
+        void EditStage(Stage stage);
+        void DeleteStage(Guid stageId);
         PlayoffStage GetPlayoffStageByGeneralStage(Guid stageId);
         void CreatePlayoffStage(PlayoffStage playoffStage);
         RoundRobinStage GetRoundRobinStageByGeneralStage(Guid stageId);
         void CreateRoundRobinStage(RoundRobinStage roundRobinStage);
-        
-        
+
+        void DeleteStagesOfGeneralStage(Guid stageId);
 
         /*void CreateRoundRobinStage(RoundRobinStage stage);
         void EditRoundRobinStage(RoundRobinStage stage);

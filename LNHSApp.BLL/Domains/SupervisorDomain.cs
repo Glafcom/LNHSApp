@@ -62,6 +62,11 @@ namespace LNHSApp.BLL.Domains
             return _tournamentService.GetItem(tournamentId);
         }
 
+        public Tournament GetTournamentByStage(Guid stageId)
+        {
+            return _tournamentService.GetTournamentByStage(stageId);
+        }
+
         public Tournament CreateTournament(Tournament tournament)
         {
             return _tournamentService.AddItem(tournament);
@@ -91,6 +96,17 @@ namespace LNHSApp.BLL.Domains
             return _stageService.AddItem(stage);
         }
 
+        public void EditStage(Stage stage)
+        {
+            _stageService.ChangeItem(stage.Id, stage);
+        }
+
+        public void DeleteStage(Guid stageId)
+        {
+            _stageService.DeleteStagesOfGeneralStage(stageId);
+            _stageService.DeleteItem(stageId);
+        }
+
         public PlayoffStage GetPlayoffStageByGeneralStage(Guid stageId)
         {
             return _stageService.GetPlayoffStageByGeneralStage(stageId);
@@ -109,6 +125,11 @@ namespace LNHSApp.BLL.Domains
         public void CreateRoundRobinStage(RoundRobinStage roundRobinStage)
         {
             _stageService.CreateRoundRobinStage(roundRobinStage);
+        }
+
+        public void DeleteStagesOfGeneralStage(Guid stageId)
+        {
+            _stageService.DeleteStagesOfGeneralStage(stageId);
         }
 
         #endregion

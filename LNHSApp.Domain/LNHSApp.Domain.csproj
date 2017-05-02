@@ -76,6 +76,7 @@
     <Compile Include="Filters\TeamFilter.cs" />
     <Compile Include="Filters\TournamentFilter.cs" />
     <Compile Include="Filters\UserFilter.cs" />
+    <Compile Include="Models\Article.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Breaking.cs" />
     <Compile Include="Models\Detail.cs" />

@@ -24,7 +24,7 @@ namespace LNHSApp.Domain.Models
         public DateTime? BeginDate { get; set; }
         public DateTime? EndDate { get; set; }
         public int Order { get; set; }
-
+        
         public virtual ICollection<HockeyTable> Tables { get; set; }
         public virtual ICollection<User> Players { get; set; }
         public virtual ICollection<Team> Teams { get; set; }
